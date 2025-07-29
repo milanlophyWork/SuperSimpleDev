@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LESSON 4 : exercises</title>
+        <style>
+            .yellow_btn{
+                background-color: yellow;
+            }
+            .orange_btn{
+                background: orange;
+            }
+        </style>
+    </head>
+    <body>
+    <!--    
+            1) create a button with text 'click' inside  
+            2) create 2 buttons 1 with your name and 1 with your fav food. 
+            3) create a paragraph with text 'Hello, world!' 
+            4) Create a paragraph below previous paragraph and write something you did today 
+            5) Create 2 buttons 'Add to cart' and 'Buy now'. Use css to give them yellow and orange bg colours. 
+            6) Add a script element so that when the page loads, it displays the message 'Welcome! in the console'
+            7) Add 2 texts above 2 buttons created in qn 5 1) Adults Plain Cotton T-shirt  2) Price: $7.99 
+            8) Add onClick to 2 buttons. On clicking Add to cart, popup 'Added'. On clicking Buy now display 'loading...' in console and then create a popup with text 'Purchased'  -->
+        
+        <button>Click</button>
+        <button>Milan</button>
+        <button>Chocolate</button>
+
+        <p>Hello, world!</p>
+        <p>
+            Today, I learned JavaScript basics from superSimpleDev channel.
+        </p>
+        <p>Adults Plain Cotton T-shirt</p>
+        <p>Price: $7.99</p>
+
+        <button class="yellow_btn" onclick="alert('Added')">
+            Add to cart
+        </button>
+        <button class="orange_btn" onclick= 
+                "console.log('Loading...')
+                alert('Purchased')" >
+            Buy now
+        </button>
+
+
+        <script>
+            console.log('Welcome!')
+        </script>
+
+    </body>
+</html>

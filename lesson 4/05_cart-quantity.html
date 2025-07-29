@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cart Quantity</title>
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+        <div>
+            <button onclick = "
+                console.log(`Cart quantity: ${cart}`)
+            ">Show Quantity</button>
+
+            <button onclick="
+                cart++ // instead cart = cart + 1 use shortcut car++
+                console.log(`Cart quantity: ${cart}`)
+            ">Add to Cart</button>
+
+            <br><br>
+
+            <button onclick="
+                cart += 2 // short-cuts for re-assigning
+                console.log(`Cart quantity: ${cart}`)
+            ">+2</button>
+
+            <button onclick="
+                cart = cart + 3
+                console.log(`Cart quantity: ${cart}`)
+            ">+3</button>
+            
+            <button onclick="
+            cart += 4
+            console.log(`Cart quantity: ${cart}`)
+            ">+4</button>
+
+            <button onclick="
+            cart += 5
+            console.log(`Cart quantity: ${cart}`)
+            ">+5</button>
+            
+            <br><br>
+
+            <button onclick="
+            cart--
+            console.log(`Cart quantity: ${cart}`)
+            ">Remove from cart</button>
+
+            <button onclick="
+            cart -= 2
+            console.log(`Cart quantity: ${cart}`)
+            ">-2</button>
+
+            <button onclick="
+            cart -= 3
+            console.log(`Cart quantity: ${cart}`)
+            ">-3</button>
+
+            <br><br>
+
+            <button onclick="
+                cart= 0
+                console.log(`Cart was reset. \nCart quantity: ${cart}`)
+            ">Reset Cart</button>
+        </div>
+        
+        <script>
+            let cart= 0
+        </script>
+    </body>
+</html>

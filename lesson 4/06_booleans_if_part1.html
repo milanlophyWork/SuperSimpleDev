@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 6 : Booleans & if </title>
+    </head>
+    <body>
+        <p>Booleans are a type of values in JavaScript. There are only 2 boolean values, true or false. A boolean value represents whether something is true or false. Syntax: true , false. We create boolean by comparing 2 numbers.</p>
+        <script>
+
+            console.log(3 < 5) // create boolean true. Here < is cld comparison operator. Other comparison operators are >, >=, <=, ===, ==, !==, !=.
+
+            console.log(' == tries to convert both values into the same type. === checks if both values are same. It also considers type , if diff type return false. Same in case of != and !== . So always use === and !==')
+
+            console.log(5 == '5.00') // return true eventhough one of them is number and other is a string. ie it converts both values to same type (convert both into number 5 so return true)
+            console.log(3 === '3')  // return false as both are diff types
+            console.log(3 === 3.00)  // return true as both are same values
+            
+            console.log(typeof true)
+            console.log(typeof false)
+
+            console.log('order of operations: (...) , * / , + - , comparison operators')
+
+            console.log(3 > 5 - 5) // first - then  > so => 3 > 0 return true
+
+        </script>
+    </body>
+</html>

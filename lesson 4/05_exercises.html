@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 5: exercises</title>
+    </head>
+
+    <body>
+        <!--
+            1) Create a script element. Inside the script create a variable called name and save your name in this variable (as a string)
+            2) Display a msg 'My name is: ${name}' in the console (name above inserted)
+            3) At a restaurant, you order 1 coffee ($5), 2 bagels ($3 each) and 1 soup ($9). Calculate the cost and save it in a variable called 'cost'
+            4) Display the cost as 'Cost of food: $...' in the console.
+            5) Let's say the restaurant charges a 10% tax. Using the 'cost' variable from qn 3, calculate the tax and save the result in a variable
+            6) Display tax as 'Tax (10%): $...' in the console
+            7) Calculate the total (cost + tax), save it in a variable called totalCost and display the msg 'Total cost: $...' in the console.
+            8) In the cart quantity project add 2 more buttons '+4' and '+5', which increase the quantity by 4 and 5 on clicked (try with +=)
+            9) In the cart quantity project, add a button 'Remove from cart', which decreases the cart quantity by 1
+            10) Add 2 buttons '-2' and '-3' which decrease the quantity by 2 and 3
+            
+            open supersimple.dev/projects/calculator in browser and open console
+
+            11) create a new file calculator.html. Add the html structure with a title Calculator
+            12) Create buttons in first row in browser
+            13) create a script create a variable called calculation and save an empty string inside
+            14) on clicking 1 add string 1 to calulation variable and display it in console. Do the same for 2,3 and + . for + display ' + ' instead of '+'
+            15) on clicking = use the code eval(calculation) [eval() converts the calculation string into actual math] . Save the result back in 'calculation' [calculation = eval(calculation)] . Display the result in the console.
+            16) create the rest of the buttons in calculator. Put buttons inside <p> elements to create multiple rows
+        -->
+
+        <script>
+            const name= 'Milan' // use const by default always. Change if re-assignment occurs
+            console.log(`My name is: ${name}`)
+
+            const cost= 5+ 2 * 3 + 9
+            console.log(`Cost of food: $${cost}`)
+
+            const tax= (5 + 2*3 + 9) *0.1
+            console.log(`Tax (10%): $${tax}`)
+
+            const totalCost= ((5+ 2*3 + 9) + (5+ 2*3 + 9) * 0.1)
+            console.log(`Total cost: $${totalCost}`)
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 5 : Variables</title>
+    </head>
+
+    <body>
+        <p>A variable is like a container in which we can save a value and use later. In javascript we use let, var, const to create variables. Semi-colon depicts the end of an instruction. With semi-colon we could write 2 instructions in one line as it specifies end of each instruction. Without semi-colon it turns out to be an error. JavaScript automatically inserts the last semi-colon </p>
+        <p>Syntax: let variable_name = value ; NOTE: use camelCase for naming variables. </p>
+        <p>variable_name restrictions: 1) can't use (special words) keywords like let, const, etc 2) Can't start with a number 3) can't use special characters except $ and underscore</p>
+        <p>typeof returns the type of a variable</p>
+        <script>
+            let var1= 3  // var1 is the name of variable. It stores the value 3
+            console.log(var1) // using the value of var1 later
+
+            let calculation = 2 + 2
+            console.log(calculation)
+            console.log(calculation + 2)
+
+            let result = calculation + 2 // we can use variable for calculation
+            console.log(result)  // last semi-colon automatically inserted
+
+            let message= 'Good Morning' // cld assigning a value to the variable 
+            console.log(message)
+
+            message= 'Good Evening' // changing the variable value stored previously // cld re-assigning a value to a variable. On re-assigning let is avoided
+            console.log(message)
+
+            var1= 6
+            console.log(var1)
+
+            var1= var1 + 1  // we can re-assign a variable any number of times. Here we use the var1 itself in calculation . It's value is incremented to 1
+            console.log(var1)
+
+            const var2= 'variable2' // const variables can't change value later. So use const variables in cases where values remain same (use const always by default is best practice, use let only when re-assignments are done). Otherwise use let variables
+            console.log(var2)
+
+            var var3= 'variable3' // var same as let but var has some issues (var fn scoped , hoisted and initialized with undefined, allow re-declaration of same named variables, var create bugs with closures) so we don't use var in new js code (let => block-scoped, hoisted but not initialized ie temporal dead zone, No re-declaration of same named variables, closure safe, )
+            console.log(var3)
+
+            console.log(typeof 4)
+            console.log(typeof var3)
+
+
+        </script>
+    </body> <!--camelCase for variables, PascalCase, kebab-case in html and css and in naming files, snake_case-->
+</html>

@@ -1,0 +1,57 @@
+<!-- Html structure : Every html starts with <!DOCTYPE HTML>. This element tells the browser to use a modern version of html. Then use an html element. html element represent the entire webpage. Everything in webpage go inside this element. html element split into 2 sections head and body. body element contain everything that is visible on the page. head element contains info about the page. Everything not visible in page is written here (title, style, meta data, author info, etc). Html structure avoids the need of refreshing  the page on each and every update using the option 'open with live server' once the live server extension (then go to vscode settings -> search live server -> set live server: custom browser to chrome ) is installed.  -->
+
+
+<!DOCTYPE html>
+<html>
+    <head> <!-- html comment -->
+        <title>HTML Structure</title>
+
+        <style>
+
+            /* css comment */
+
+            button{
+                background: cornflowerblue;
+                color: white;
+                border: none;
+            }
+            .yellow_button{
+                background: yellow;
+                color: coral;
+
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <button onClick="alert('Hello !')">
+            Hello
+        </button>
+        <p>
+            This is a paragraph with a 
+            <button>button</button> 
+            element in it.
+        </p>
+        <button title="Button with another style" class="yellow_button">
+            Style 2
+        </button>
+
+        <p>
+            Comments are pieces of code that computer ignores. html use < !-- --> for writing comments. css use /* */ to write comments and js use // to write single line comments and /* */ for multi-line comments. Comments provide more information. It is also used when we don't want to run a code and don't want to delete it at the same time
+        </p>
+
+        <script>    // html has style element to run css code and script element to run js code. Usually written at bottom of body. As we want the webpage to be created first then need to make it interactive. console in browser is used to try out javascript code. we run js code in html (for creating websites) in 2 ways : using script tag , using attribute (onclick). code in script runs first on page load ang code in onclick run on btn click 
+            
+            // alert('Namaste !')
+
+            /*
+                multi-line comments
+            */
+
+            console.log('hello') // console.log() redirect the string from browser to console.
+
+        </script>
+
+    </body> <!-- VS Code setup: 1) Indents / tab spaces make our code easier to read. By default vs code uses 4 indent spaces. Html, css and js usually uses 2 spaces per indent. vscode settings -> settings -> search tab -> set tab size to 2 -> close settings -> select spaces in bottom of vscode -> indent using spaces -> select 2    -->
+</html> <!-- 2) Line wrapping => wraps lenghty lines to next line. vs code settings-> search wrap -> turn on editor word wrap  -->

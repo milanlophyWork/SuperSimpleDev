@@ -1,0 +1,33 @@
+
+        <!-- LESSON 4 : html, css review , console.log()
+
+// html creates the content of the website, css changes the appearance and javascript makes the website interactive. Html => hypertext markup language
+// setup: install a code editor (helps us write and organize code) like vs code -->
+
+<button>Hello</button>  <!-- computer follow instructions one by one (line by line) Each of things displayed on screen is called html elements. html elements are created using html tags eg: <button> here button is element name and < > make it a tag. Html tags has an opening tag and closing tag. -->
+<p>This is a paragraph with a     <button>button</button> 
+    element in it.</p> <!-- It can also have an element within another element ie nesting. In html, multiple spaces are count to one space and newlines are count as spaces. --> 
+
+    <!-- CSS stands for cascading style sheets for styling. -->
+
+<style>
+    button{ /* tells computer to change the appearence of all buttons in the website */
+        background: cornflowerblue;
+        color: white;
+        border: none;
+    } /* Here 'button' is cld the css selector. It selects the elements to be changed. Here 'background' is cld the css property. It tells computer what we are changing/ styling. 'cornflowerblue' is cld the css value. It tells the computer how to style  */
+
+    .yellow_button{
+        background: yellow;
+        color: coral;
+        border: 1px solid burlywood;
+    }
+
+
+</style>
+
+<!-- HTML Attributes => change the behaviour of an element. Used when we want to style each element differently (use class attribute). eg: one button with a different style. Html attributes are put always in opening tag. Here 'title' is the attribute name and 'tooltip: button with another style is the attribute value. Here we are actually changing tooltip of button to 'tooltip: button with another style'. -->
+
+<button title="tooltip : button with another style" class="yellow_button">Style 2</button> <!-- Tooltip is a popup tha appears on hovering an element. It gives extra information about that element. class adds a label to an element. ie this button is labelled as an yellow button. on styling a class dot is used.-->
+
+
