@@ -3,4 +3,133 @@
     <head>
         <title>If statements</title>
     </head>
+    <body>
+        <script>
+
+            console.log('If statements lets us write multiple groups of code and then decide which code to run.')
+
+            /*
+            if(true) {
+                console.log('hello from true')
+            }
+            
+            if(false){
+                console.log('hello from false')
+            }
+            
+            if(true){
+                console.log('from true')   
+            }else{
+                console.log('else from false')
+            }
+
+            if(false){
+                console.log('from false')
+            }
+            else{ // else is considered true as if is false
+                console.log('else from true')
+            }
+                */
+
+            console.log('code to check if someone is old enough to drive') 
+            
+            /*
+            const age = 20
+            if(age >= 18){
+                console.log('Eligible to drive')
+            }
+            else {
+                console.log('Not eligible')
+            }
+
+            // syntax for if: if(condition) { ... code ...}. if with one statement not need curly braces but if with more codes require  curly braces.
+
+            */
+            console.log('logical operators lets us to combine boolean values.')
+
+            /*
+
+            console.log('AND operator && :') // AND checks if both boolean values are true
+
+            
+            console.log('both true',true && true)
+            console.log('atleast 1 true',false && true)
+            console.log('both false',false && false)
+
+            // OR operator || checks if atleast one of the boolean value is correct
+
+            console.log('OR operator...')
+            console.log('atleast 1 true ',true || false)
+            console.log('both true',true || true)
+            console.log('both false',false || false)
+
+            console.log('NOT operator...') // only uses one boolean value. It flips it to the opposite boolean value. 
+            console.log('NOT of true is',!true)
+            console.log('NOT of false is',!false)
+
+            // order of operations : (...) , * / , + - , Comparison operators, Logical operators
+            console.log(0.2 >= 0 && 0.2 < 1/3) //first perform division (1/3) then comparisons (from left [>=] to right [<]) then logical (&&)
+            console.log(0.2 >= 0 || 0.2 < 0.1) // return true as 0.2 >= 0 is true
+            console.log(!5<3) // !5 < 3 => !false => true // 5<3 is false
+
+                */
+
+            console.log('Truthy and Falsy Values')
+
+            /*
+            if(5){ // truthy value as it behaves just like true
+                console.log('truthy')
+            }
+            if(0){  // zero is a falsy value. Beacuse it behaves as false(code not dispayed same like false condition behaviour).
+                console.log('falsy')
+            }
+            console.log("Falsy values in JS are : false, 0, '', NaN, undefined and null. All other values are truthy values.")
+
+            console.log('Truthy and falsy values used as shortcut.')
+
+            const cartQuantity = 5 // => cartQuantity > 0 is true, cartQuantity is truthy
+            if(cartQuantity){ // instead of cartQuantity > 0 we use cartQuantity.  cartQuantity behaves as truthy.   
+                console.log('cart has products')
+            }
+            // if cartQuantity = 0 => cartQuantity > 0 is false , cartQuantity is falsy
+
+            console.log('Truthy and falsy values with logical operators')
+
+            console.log(!0) // 0 is falsy value so !0 returns true
+
+            // NaN => not a number. we get NaN if we perform some invalid math. Undefined => something that doesn't have a value
+
+            console.log('number'/ 5) // NaN
+
+            let var1 // undefined as not assigned a value // const var1 is not possible. we have to write const var1 = undefined 
+            console.log(var1)
+
+            */
+           console.log('Short cuts for if-statements') 
+
+           // Ternary operator ?:
+
+            const result = true ? 'truthy' : 'falsy'
+            console.log(result)
+            console.log(0 ? 'truthy' : 'falsy') // 0 is falsy value
+
+            // Guard operator && // short-circuit evaluation : (stops early) code in right avoided if code in left is false (&& requires both to be true . If first one is false it doesn't even run 2nd )
+
+            console.log(false && console.log('hello')) // code in left guards right so cld as guard operator.
+            console.log(5 && console.log('hello')) // 5 is truthy so it displays hello (from inner console) and undefined (from outer console). inner console print hello & return undefined outer console.log prints the returned undefined as outer actually is console.log(<result of inner>) => console.log(undefined)
+ 
+            // Default operator ||  checks if atleast one side is truthy. Code in left side if true then result will be true. So it avoids running right side code. ie stops early (short - circuits)
+
+            console.log(true || console.log('hi')) // display true // as left side is true so right side is avoided. 
+            console.log(false || console.log('hi')) // left side is false so right side is runned and it will display hi, undefined 
+
+            // code to allow user to choose a currency for payment. If not choosed default currency is USD => United States Dollars
+
+            const currency = 'EUR' || 'USD'  // EUR => Euros
+            console.log(currency) // currency is truthy as 'EUR' is a non-empty string (=> user chose EUR). so display EUR 
+            
+            console.log(undefined || 'USD') // Not choosed (undefined or use '') so display 'USD'
+
+        </script>
+    </body>
 </html>

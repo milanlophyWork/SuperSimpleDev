@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Booleans and if exercises</title>
+    </head>
+    <body>
+
+        <!--
+            1) Create a variable called 'hour' and save the current hour of the day (use 24-hour format and save it as a number b/w 0 and 23 ). 
+                if hour b/w 6 and 12 display Good morning! in console. if hour is between 13 and 17 display 'Good afternoon!' in the console. Ow display 'Good night!' in the console.
+            2) Create a variable cld 'name' and save you name inside. Update the if-statement to display your name in each msg (eg: Good morning ${name})
+            3) Imagine an amusement park that has a discount for children (6 yrs and younger) or seniors (65 yrs and older). create a variable 'age' and save a person's age inside. create an if statement that checks if person qualifies for a discount
+            4) Let above discount is only available if it is not a holiday. crearte a variable const isHoliday = true
+            5) coin filp game . create an html file 
+        -->
+        <script>
+            const hour = Date()
+            if(hour > 6 && hour < 12){
+                console.log('Good morning!')
+            }else if(hour >= 12 && hour < 17){
+                console.log('Good afternoon!')
+            }else{
+                console.log('Good night!')
+            }
+            console.log(hour)
+        </script>
+    </body>
+</html>
