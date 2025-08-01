@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coin Flip Game</title>
+
+        <style>
+            body{
+                text-align: center;
+            }
+            #head, #tail{
+                background: none;
+                border: 2px solid cornflowerblue;
+            }
+        </style>
+    </head>
+    <body>
+        Guess : 
+        <button  id="head" onclick="
+            guess = 'heads'
+            this.style.borderColor = 'green'
+            document.getElementById('tail').style.borderColor = ''
+
+        ">Heads</button>
+
+        <button id="tail" onclick="
+            guess = 'tails'
+            this.style.borderColor = 'green'
+            document.getElementById('head').style.borderColor = ''
+
+        " >Tails</button> <br> <br>
+
+        <div><button onclick="
+
+            let value = Math.random()
+            let result = ''
+            
+
+            if(value < 0.5){
+                result = 'heads'
+            }else{
+                result = 'tails'
+            }
+
+            console.log(`You guessed ${guess}. The result is ${result}.`)
+            if(result === guess){
+                console.log('You won')
+            }else{
+                console.log('You lost')
+            }
+
+            document.getElementById('head').style.borderColor = ''
+            document.getElementById('tail').style.borderColor = ''
+
+        " id="flip">Flip Coin</button></div>
+        <script>
+            
+            let guess = ''
+            guess = guess?.trim().toLowerCase() // trim().toLowerCase() ensures extra spaces or case mismatches don't cause errors. ie it convert entered string to lowercase version 
+
+        </script>
+            
+    </body>
+</html>
+
+            <!-- Using Ternary operator -->
+<!-- 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coin Flip Game</title>
+        <style>
+            body{
+                text-align: center;
+            }
+            #head, #tail{
+                background: none;
+                border-color: cornflowerblue;
+            }
+
+        </style>
+    </head>
+    <body>
+        <button id="head" onclick="
+
+            guess = 'heads'
+            this.style.borderColor = 'green'
+            document.getElementById('tail').style.borderColor = ''
+
+        ">Heads</button>
+
+        <button id="tail" onclick="
+
+            guess = 'tails'
+            this.style.borderColor = 'green'
+            document.getElementById('head').style.borderColor = ''
+
+        ">Tails</button>
+
+        <br><br>
+
+        <button onclick="
+            const value = Math.random()
+            let result = ''
+
+            value < 0.5 ? result = 'heads' : result = 'tails'
+            
+            console.log(`You guessed ${guess}. The result is ${result}. `)
+
+            result === guess ? console.log('You won') : console.log('You lost')
+
+            document.getElementById('head').style.borderColor = ''
+            document.getElementById('tail').style.borderColor= ''
+        ">Flip Coin</button>
+
+        <script>
+            let guess = ''
+            guess = guess.trim().toLowerCase()
+        </script>
+    </body>
+</html>
+ -->

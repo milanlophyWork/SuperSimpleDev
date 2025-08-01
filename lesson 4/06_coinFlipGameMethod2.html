@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coin Flip Game</title>
+    </head>
+    <body>
+        <button onclick = "
+                const value = Math.random()
+                let result = ''
+
+                if(value < 0.5){
+                    result = 'heads'
+                }else{
+                    result = 'tails'
+                }
+
+                let guess = prompt('Heads or Tails')
+                guess = guess.trim().toLowerCase()
+
+                console.log(`You guessed ${guess}. The result is ${result}.`)
+
+                if(result === guess){
+                    console.log('You won')
+                }else{
+                    console.log('You lost')
+                }
+            ">Flip Coin</button>
+        <script>
+            
+        </script>
+    </body>
+</html>
+
+<!-- Using ternary -->
+
+
+<!-- <html>
+    <head>
+        <title>Coin Flip Game</title>
+    </head>
+    <body>
+        <button onclick="
+
+            let guess = prompt('Heads or Tails')
+            guess = guess.trim().toLowerCase()
+
+            const value = Math.random()
+            let result = ''
+
+            value < 0.5 ? result = 'heads' : result = 'tails'
+
+            console.log(`You guessed ${guess}. The result is ${result}.`)
+
+            result === guess ? console.log('You won') : console.log('You lost')
+
+        ">Flip Coin</button>
+        <script>
+
+        </script>
+    </body>
+</html>  -->

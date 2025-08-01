@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Cart Quantity Project</title>
+    </head>
+    <body>
+
+        <!--
+            06_7.1) cart can hold maximum quantity of 10. If quantity greater than 10 display a pop 'cart is full' . otherwise show cart Quantity.
+            06_7.2) On removing items if cart goes below 0 create a pop up 'not enough items in the cart'.
+        -->
+        <p>Cart Quantity </p>
+        <button onclick="
+            console.log('Cart Quantity - ', cart)
+        ">Show Quantity</button>
+
+        <button onclick="
+            if(cart >= 10){
+                alert('Cart is full!')
+            }else{
+                cart++
+                console.log(`Cart Quantity - ${cart}`)
+            }
+           
+        ">Add an Item</button>
+
+        <button onclick="
+            if(cart >= 10){
+                alert('Cart is full')
+            }else if(cart + 2 > 10){
+                alert('Exceeds maximum limit on adding')
+            }else{
+                cart += 2
+                console.log(`Cart Quantity - ${cart}`)
+            }
+            
+        ">+2</button>
+
+        
+        <button onclick="
+
+            if(cart <= 0){
+                alert('Not enough items in the cart')
+            }else{
+                cart--
+                console.log(`Cart Quantity - ${cart}`)
+            }
+            
+        ">Remove from cart</button>
+
+        <button onclick="
+        if(cart <= 0){
+            console.log(`Not enough items in the cart`)
+        }else if(cart - 2 < 0){
+           
+            cart -= 1
+            console.log(`Cart Quantity - ${cart}`)
+        }
+            
+        ">-2</button>
+
+        <button onclick="
+            cart = 0
+            console.log(`Cart Quantity - ${cart}`)
+        ">Reset</button>
+
+        <script>
+            let cart = 0
+        </script>
+    </body>
+</html>

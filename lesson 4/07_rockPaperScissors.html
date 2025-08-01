@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <button onclick="
+            
+            pickComputerMove()
+
+            let result = ''
+
+            if(computerMove === 'rock'){
+                result = 'Tie'
+            }else if(computerMove === 'paper'){
+                result = 'You lost'
+            }else{
+                result = 'You won'
+            }
+
+            alert(`You picked rock. Computer picked ${computerMove}. ${result}`)
+
+            ">Rock</button>
+
+        <button onclick="
+            
+            pickComputerMove()
+            let result = ''
+
+            if(computerMove === 'rock'){
+                result = 'You lose'
+            }else if(computerMove === 'paper'){
+                result = 'Tie'
+            }else{
+                result = 'You won'
+            }
+
+            alert(`You picked paper. Computer picked ${computerMove}. ${result}`)
+        ">Paper</button>
+
+        <button onclick="
+            
+            pickComputerMove()
+
+            let result = ''
+
+            if(computerMove === 'rock'){
+                result = 'You lose'
+            }else if(computerMove === 'paper'){
+                result = 'You won'
+            }else{
+                result = 'Tie'
+            }
+
+            alert(`You picked scissors. Computer picked ${computerMove}. ${result}`)
+        ">Scissors</button>
+
+        <script>
+            let computerMove = '' // declared globally so we could access it in above code also.
+            function pickComputerMove(){
+                const value = Math.random()
+                
+
+                if(value >= 0 && value < 1/3){
+                    computerMove = 'rock' 
+                }else if(value >= 1/3 && value < 2/3){
+                    computerMove = 'paper'
+                }else{
+                    computerMove = 'scissors'
+                }
+
+            }
+        </script>
+    </body>
+</html>

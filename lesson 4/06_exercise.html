@@ -8,21 +8,117 @@
         <!--
             1) Create a variable called 'hour' and save the current hour of the day (use 24-hour format and save it as a number b/w 0 and 23 ). 
                 if hour b/w 6 and 12 display Good morning! in console. if hour is between 13 and 17 display 'Good afternoon!' in the console. Ow display 'Good night!' in the console.
-            2) Create a variable cld 'name' and save you name inside. Update the if-statement to display your name in each msg (eg: Good morning ${name})
+            2) Create a variable cld 'name' and save your name inside. Update the if-statement to display your name in each msg (eg: Good morning ${name})
             3) Imagine an amusement park that has a discount for children (6 yrs and younger) or seniors (65 yrs and older). create a variable 'age' and save a person's age inside. create an if statement that checks if person qualifies for a discount
-            4) Let above discount is only available if it is not a holiday. crearte a variable const isHoliday = true
+            4) Let above discount is only available if it is not a holiday. create a variable const isHoliday = true
             5) coin filp game . create an html file 
+            6) Instead of using if-statements in previous exercises try them using ternary operators.
+            7) Improve the cart Quantity project check 06_cartQuantity.html
         -->
         <script>
-            const hour = Date()
-            if(hour > 6 && hour < 12){
+                // ans 1
+
+           /*   
+            const hour = new Date().getHours()
+            if(hour >= 5 && hour < 12){
                 console.log('Good morning!')
             }else if(hour >= 12 && hour < 17){
                 console.log('Good afternoon!')
             }else{
                 console.log('Good night!')
             }
+            console.log(hour) */
+
+             // ans 2
+            
+             /*
+            const name = 'Milan Lophy'     
+            const hour = new Date().getHours()  // Date() without new returns a string not the actual hour
+
+            if(hour >= 5 && hour < 12 ){
+                document.write(`Good morning ${name}!`)
+            }else if(hour >= 12 && hour < 15){
+                document.write(`Good afternoon ${name}!`)
+            }else if(hour >= 15 && hour < 19){
+                document.write(`Good evening ${name}!`)
+            }else {
+                document.write(`Good night ${name}`)
+            }
+
             console.log(hour)
+
+            */
+
+            // ans 3
+
+            /*
+            const age = 6      
+            if(age >0 && age <= 6 || age >= 65){
+                console.log('Eligible for discount')
+            }else{
+                console.log('Not eligible for discount')
+            }
+                */
+
+                 // ans 4
+
+            /*
+            isHoliday = true       
+            const age = 6
+            
+            if(isHoliday && (age > 0 && age <= 6 || age >= 65)){
+                console.log('Eligible for discount')
+            }else{
+                console.log('Not eligible for discount')
+            }
+
+            */
+
+            // ans 6
+
+            /*
+            const hour2 = new Date().getHours() // ans 1 using ternary
+            hour2 >= 6 && hour2 < 12 ? console.log('Good morning') : (hour2 >=12 && hour2 < 15) ? console.log('Good afternoon') :
+                (hour2 >= 15 && hour2 < 19) ? console.log('Good evening') : console.log('Good night')
+            
+            console.log(hour2)
+            */
+
+            // ans 2 using ternary
+
+            
+            const name2 ='Milan Lophy'
+            const hour2 = new Date().getHours()
+
+            hour2 >= 5 && hour2 < 12 ? console.log(`Good morning ${name}`) : (hour2 >= 12 && hour2 < 15) ? console.log('Good afternoon ', name) : (hour2 >= 15 && hour2 < 19) ? console.log(`Good evening ${name}`) : console.log(`Good night ${name}`)
+            console.log(hour2)
+            
+
+            // ans 3 using ternary
+
+            /*
+            const age2 = 6
+            if(age2 > 0 && age2 <= 6 || age2 >= 65 ){
+                console.log('eligible for discount')
+            }else{
+                console.log('Not eligible for discount')
+            }
+                */
+
+            // ans 4 using ternary
+
+            
+            const isHoliday = true
+            const age = 6
+
+            if(isHoliday && (age>0 && age <=6 || age >=65)){
+                console.log('Eligible for discount')
+            }else{
+                console.log('Not eligible for discount')
+            }
+                
+
+                
         </script>
     </body>
 </html>
