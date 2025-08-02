@@ -1,11 +1,11 @@
-<html>
+<!-- <html>
     <head>
         <title>Rock Paper Scissors</title>
     </head>
     <body>
         <button onclick="
             
-            pickComputerMove()
+            console.log(pickComputerMove()) // rock displayed in console.
 
             let result = ''
 
@@ -68,7 +68,74 @@
                     computerMove = 'scissors'
                 }
 
+                return 'rock'
             }
         </script>
+    </body>
+</html> -->
+
+
+<!-- Using return statement and parameters my method-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Rock Paper Scissors
+        </title>
+    </head>
+    <body>
+        <button onclick="
+
+            const computerMove = pickComputerMove() // pickComputerMove() is now a value which we can console.log() or save in a variable.
+            const result = playGame('rock', computerMove)   
+
+        ">Rock</button>
+
+        <button onclick="
+
+            const computerMove = pickComputerMove()
+            const result = playGame('paper', computerMove)
+
+        ">Paper</button>
+
+        <button onclick="
+
+            const computerMove = pickComputerMove()
+            const result = playGame('scissors', computerMove)
+
+        ">Scissors</button>
+
+        <script>
+            function pickComputerMove(){
+                const value = Math.random()
+                let computerMove = ''
+
+                if(value >= 0 && value < 1/3){
+                    computerMove = 'rock'
+                }else if(value >= 1/3 && value < 2/3){
+                    computerMove = 'paper'
+                }else{
+                    computerMove = 'scissors'
+                }
+
+                return computerMove
+            }
+
+            function playGame(playerMove, computerMove){
+
+                let result = ''
+                if(playerMove === computerMove){
+                    result = 'Tie'
+                }else if((playerMove === 'rock' && computerMove === 'paper') || (playerMove === 'paper' && computerMove === 'scissors') || (playerMove === 'scissors' && computerMove === 'rock')){
+                    result = 'You lose'
+                }else{
+                    result = 'You won'
+                }
+
+                alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}.`)
+                return result
+            }
+        </script>    <!-- Returning a variable is more preffered than using  a global variable. Because scope helps us prevent naming conflicts. We could use same name both inside and outside fn.  -->
     </body>
 </html>

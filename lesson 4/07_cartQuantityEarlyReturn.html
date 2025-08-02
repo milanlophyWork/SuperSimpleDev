@@ -1,0 +1,97 @@
+<!-- 07_ans 12 -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cart Quantity</title>
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+
+        <button onclick="
+            updateCart('show')
+        ">Show quantity</button>
+
+        <button onclick="
+            updateCart('add')
+        ">Add to cart</button>
+
+        <button onclick="
+            updateCart('+2')
+        ">+2</button>
+
+        <button onclick="
+            updateCart('remove')
+        ">Remove from cart</button>
+
+        <button onclick="
+            updateCart('-2')
+        ">-2</button>
+
+        <button onclick="
+            updateCart('reset')
+        ">Reset</button>
+
+        <script>
+            let cart = 0
+
+            function updateCart(value){
+                if(value === 'show'){
+                    console.log(`Cart quantity ${cart}`)
+                    return
+                }
+                if(value === 'add'){
+                    if(cart >= 10){
+                        alert('Cart is full')
+                        return
+                    }
+                    cart ++
+                    console.log(`Cart quantity ${cart}`)
+                    return
+                }
+                if(value === '+2'){
+                    if(cart >= 10){
+                        alert(`Cart is full!`)
+                        return
+                    }
+                    if(cart + 2 > 10){
+                        alert(`Exceeds limit on adding`)
+                        return
+                    }
+                    cart += 2
+                    console.log(`Cart quantity ${cart}`)
+                    return
+                }
+                if(value === 'remove'){
+                    if(cart === 0){
+                        alert('Cart is empty!')
+                        return
+                    }
+                    cart --
+                    console.log(`Cart quantity ${cart}`)
+                    return
+                }
+                if(value === '-2'){
+                    if(cart === 0){
+                        alert('Cart is empty!')
+                        return
+                    }
+                    if(cart - 2 < 0){
+                        cart--
+                        console.log(`Cart quantity ${cart}`)
+                        return 
+                    }
+                    cart -= 2
+                    console.log(`Cart quantity ${cart}`)
+                    return 
+                }
+                if(value === 'reset'){
+                    cart = 0
+                    console.log(`Cart quantity ${cart}`)
+                    return 
+                }
+            }
+        </script>
+    </body>
+</html>
+

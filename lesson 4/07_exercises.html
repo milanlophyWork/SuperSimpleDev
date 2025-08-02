@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 7 : Exercises</title>
+    </head>
+    <body>
+    <!--
+        1) Create a function called 'greet' that displays the message 'Hello!' in the console. Call/ run this function.
+        2) Add a parameter called 'name' to the 'greet' function and display the message : 'Hello ${name}!' Call the fn a few times with different names
+        3) Try calling greet() without a name (it will display 'Hello undefined!'). Modify the function so that if 'name' is undefined, it will display 'Hi there!' instead.
+        4) Create a function 'convertToFahrenheit(celsius)' that takes a number in degree celsius and returns a number in degree Fahrenheit.  // Formula : F = (C * 9/5 ) + 32
+        5) Create a function 'convertToCelsius(fahrenheit)' that takes a number in degrees Fahrenheit and returns a number in degree Celsius.  // Formula : C = (F - 32) * 5/9
+        6) Create a function 'convertTemp(degrees, unit)' that takes a number and a unit ('C' or 'F') and converts it into the other unit. 
+            6.1 ) Return a string and reuse fns from qn 4 and 5
+
+        7) Create a function convertlength(length, from , to) that takes a number and a unit ('km' or 'miles') and convert the length to another unit ('km' or 'miles') [1 mile = 1.6 km approximately]
+        8) Update convertLength to support converting b/w km, miles, and also feet. [1 mile = 5280 ft, 1 km = 3281 ft approximately]
+        9) Update convertLength so that if you give it an invalid unit, it will return `Invalid unit : ${unit}`
+        
+        10) Create a copy of calculator project and create a function 'updateCalculation' and reuse code
+        11) Create a copy of cart quantity project and create a fn updateQuantity and reuse code
+        12) Modify 'update cart quantity' so that if quanitiy is invalid , alert() and then return (this is cld an early return) Early return make our code cleaner because we can remove the else-if / else
+    -->
+        <script>
+
+                        // 1 ans 
+            
+            /*      
+            function greet(){
+                console.log('Hello')
+            }
+            greet(), greet()    */
+
+                            // 2 ans 
+
+            /*
+            function greet(name){
+                console.log(`Hello ${name}!`)
+            }
+            greet('Lophy')
+            greet('Sini')   
+            greet()     */   // 3 ans 
+
+                        // continued from 3
+
+                /*
+            function greet(name){
+                if(name){
+                    console.log(`Hello ${name}!`)
+                }else{
+                    console.log('Hi there!')
+                }
+                
+            }
+            greet()
+            greet('Sis')
+            */
+
+                            // 4 ans 
+
+            /*
+            function convertToFahrenheit(celsius){
+                console.log((celsius * 9/5) + 32 + ' deg F')
+            }
+            convertToFahrenheit(25)  // 25 deg C = 77 deg F
+
+            */
+
+                            // 5 ans 
+
+            /*
+            function convertToCelsius(fahrenheit){
+                console.log((fahrenheit - 32) * 5/9 + ' deg C')
+            }
+            convertToCelsius(86)     // 86 deg F = 30 deg C
+
+            */
+
+                            // 6 ans
+
+            /*
+            function convertTemperature(degrees, unit){
+                if(unit === 'C' || unit === 'c'){
+                    const F = (degrees * 9/5) + 32
+                    console.log(`${degrees} deg ${unit} = ${F} deg F.`) // 25 deg C = 77 deg F
+                }else if(unit === 'F'){
+                    const C = (degrees - 32) * 5/9
+                    console.log(degrees + ' deg '+ unit + ' = '+ C + ' deg C') // 86 deg F = 30 deg C
+                }else{
+                    console.log('Invalid entry')
+                }
+            }
+            convertTemperature(25, 'C') // 77
+            convertTemperature(86, 'F') // 30
+
+            */
+
+                    // 6.1 ans
+
+            /*
+
+            function convertTemp(deg, unit){
+                if(unit === 'C'){
+                    convertToFahrenheit(deg)
+                }else if(unit === 'F'){
+                    convertToCelsius(deg)
+                }else{
+                    console.log('Invalid entry')
+                }
+                return 'To Convert Temperature use deg C or deg F as unit'
+            }
+            convertTemp(25, 'C')
+            convertTemp(86, 'F')
+            console.log(convertTemp(25, 'm'))
+            */
+
+                        // 7 ans
+
+            /*
+            function convertLength(length, from ,to){
+                
+                if(from === 'miles' && to === 'km'){
+                    console.log(`${length} miles = ${length * 1.6} km`)
+                }else if(from === 'km' && to === 'miles'){
+                    console.log(`${length} km = ${length / 1.6} miles`)
+                }else if(from === to){
+                    console.log(`${length} ${from}`)
+                }else {
+                    console.log('Invalid Entry')
+                }
+            }
+            convertLength(50, 'miles', 'km')  // 50 miles = 80 km
+            convertLength(32, 'km', 'miles') // 32 km = 20 miles
+            convertLength(50, 'km', 'km')   // 50 km
+            convertLength(5,'lbs','lbs')
+            */
+
+                        // 8 ans
+
+            /*
+            function convertLen(len, from, to){
+                if(from === 'miles' && to === 'km'){
+                    console.log(`${len} ${from} = ${len * 1.6} ${to}`)
+                }else if(from === 'km' && to === 'miles'){
+                    console.log(`${len} ${from} = ${len / 1.6} ${to}`)
+                }else if(from === 'ft' && to === 'miles'){
+                    console.log(`${len} ${from} = ${len/5280} ${to}`)
+                }else if(from === 'miles' && to === 'ft'){
+                    console.log(`${len} ${from} = ${len * 5280} ${to}`)
+                }else if(from === 'ft' && to === 'km'){
+                    console.log(`${len} ${from} = ${len/3281} ${to}`)
+                }else if(from === 'km' && to === 'ft'){
+                    console.log(`${len} ${from} = ${len * 3281} ${to}`)
+                }else{
+                    console.log('Invalid Entry')
+                }
+            }
+
+            convertLen(5, 'miles', 'km') // 8km
+            convertLen(5, 'miles', 'ft') // 26400 ft
+            convertLen(5,'km', 'ft') // 16405 ft
+            convertLen(26400, 'ft', 'miles') // 5 miles
+            convertLen(16405, 'ft', 'km')  // 5 km
+
+            */
+
+                        // 9 ans
+
+            function convertLen(len, unit, to){
+                if(unit === 'km' || unit === 'miles' || unit === 'ft'){
+
+                    if(unit === 'miles' && to === 'km'){
+                        console.log(`${len} ${unit} = ${len * 1.6} ${to}`)
+
+                    }else if(unit === 'km' && to === 'miles'){
+                        console.log(`${len} ${unit} = ${len / 1.6} ${to}`)
+
+                    }else if(unit === 'miles' && to === 'ft'){
+                        console.log(`${len} ${unit} = ${len * 5280} ${to}`)
+
+                    }else if(unit === 'ft' && to === 'miles'){
+                        console.log(`${len} ${unit} = ${len / 5280} ${to}`)
+
+                    }else if(unit === 'km' && to === 'ft'){
+                        console.log(`${len} ${unit} = ${len * 3281} ${to}`)
+
+                    }else if(unit === 'ft' && to === 'km'){
+                        console.log(`${len} ${unit} = ${len / 3281} ${to}`)
+
+                    }else if(unit === to){
+                        console.log(`${len} ${unit}`)
+
+                    }else{
+                        console.log(`Invalid unit: ${to}`)
+                    }
+
+                }else{
+                    console.log(`Invalid unit: ${unit}`)
+                }
+            }
+
+            convertLen(50, 'miles', 'km')
+            convertLen(32, 'km', 'miles')
+            convertLen(50, 'km', 'km')
+            convertLen(5, 'miles', 'ft')
+            convertLen(5, 'km', 'ft')
+            convertLen(5, 'lbs', 'lbs')
+        </script>
+    </body>
+</html>

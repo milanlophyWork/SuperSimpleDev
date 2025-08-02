@@ -4,13 +4,36 @@
         <title>Functions</title>
     </head>
     <body>
-        A function lets us reuse code. syntax : function fnName(parameter _list) { fnBody } . calling the function : fnName()
+        <h4>Functions</h4>
+        A function lets us reuse code. syntax : function fnName(parameter _list) { fnBody } . calling the function : fnName(). Functions also make our code easier to update. 
+        <p>
+            <h4>Return statement</h4>
+            Return statement let us to get a value out of a function. When we use a return statement , it ends the function immediately. Code after return won't work. If we return without a value (eg: return ;) then undefined is returned.
+        </p>
+        <p>
+            <h4>Parameters</h4>
+            Parameters put a value into  a function. Parameters work the same way as a variable. we can save a value inside parameter and use it as a variable. Parameters only works inside a fn. We can have many paramters in a fn.
+        </p>
         <script> 
             function fn1(){
                 console.log('Hello')
                 console.log(2+3)
             }
             fn1()
-        </script>
+            // cost of product be 1000 cents ($ 10). Tax is 10%. ie 1000 * 10/100 => 100 cents => 1$
+            function calculateTax(cost, taxPercent){ // parameter: this fn takes 2 parameters
+                let result = cost * taxPercent/100
+                return result
+            }
+
+            console.log(calculateTax(1000, 10)) // passing a value into a function (argument)
+            console.log(calculateTax(1000)) // if a value is not passed into parameter, the parameter will get a value undefined and hence NaN is displayed . To solve we could either pass a value or set a default value.
+
+            function Tax(cost, taxPercent = 20){// setting default value
+                console.log('Tax is ',cost * taxPercent/100, 'cents.')
+            }
+            Tax(3000)
+
+        </script> <!-- NOTE: following the code line by line is cld tracing the code . -->
     </body>
 </html>
