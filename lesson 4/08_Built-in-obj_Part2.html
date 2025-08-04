@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Built - in Objects</title>
+    </head>
+    <body>
+        
+        Objects provided by the language are built-in objects. console.log and Math.random are built-in objects. Other built-in objects are JSON and localStorage.<p></p>
+
+        JSON built-in obj helps us work with JSON (JavaScript Object Notation). JSON is basically a syntax similar to JavaScript object but it has less features.<p></p>
+
+        JSON does't support single quotes and fns like Js. All strings in JSON must use double quotes. Then why use JSON over JS ?<p></p>
+
+        JS object only make sense in Js. JSON is understandable by all programming languages. ie JSON syntax is more universal. Hence we use JSON when we send data between computers <!--(as both computers may use different languages ). -->
+        and when we store data.<p></p>
+
+        JSON object helps us convert a JavaScript object to JSON.<p></p>
+        localStorage built-in object save values more permanently. Variables are temporary. If we refresh/close the page, all variables are deleted. localStorage stores values even if we refresh or close the page.<p></p>
+
+        localStorage only support strings. To store values => localStorage.setItem('name', 'value to be stored'). To get stored values => localStorage.getItem('name')
+
+        <script>
+            console.log(typeof console) // built-n obj
+            console.log(typeof Math) 
+
+            const key = 'name'
+
+            const product = {
+                [key] : 'Shirt',
+                price : 1020,
+                ['delivery-time'] : '1-day',
+                rating : {
+                    stars : 4.5,
+                    count : 87
+                },
+                fn : function fn1(){
+                    console.log('Function inside object')
+                }
+            }
+
+            console.log(product)
+
+            // Converting Js object to Json object using stringify (stringify is a method of json object)
+
+            const jsonStr = JSON.stringify(product) // results in a string check typeof JSON.stringify(product)
+            console.log(jsonStr)
+
+            // Converting JSON object to Js object using parse.
+
+            console.log(JSON.parse(jsonStr))
+
+        </script>
+    </body>
+</html>

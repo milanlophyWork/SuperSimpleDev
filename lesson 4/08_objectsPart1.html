@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects</title>
+    </head>
+    <body>
+        An object is just an another type of value . It groups multiple values together. It can have properties (property-value pairs) and methods .  We can have many property-value pairs in an object which are separated using comma. <p></p>
+
+        Here name, price are properties. And socks, 450 are values . Using property we can access or change specific values in object by using dot notation or bracket notation. <p></p> 
+
+        Bracket notation can be used for adding value to the object besides accessing and changing. Inside brackets we can use strings, variables, calculations or anything that results in a value. <p></p>
+
+        We usually use dot notation by default. ***For properties that don't work with dot operator, use bracket notation.
+
+        <p>Syntax :</p>
+        
+        objName = {     <p></p>
+            property : value,       <p></p>
+            ...         <p></p>
+        }
+
+        <p>Why we use objects ?</p>
+        Objects make our code more organized. We group all related values together in an object. It enables us to to group multiple values together and also use multiple values together.
+
+
+        <script>
+
+            console.log('using dot operator')
+
+            /*     
+
+            const product = {
+                name: 'socks',
+                price: 450
+            }
+            console.log(product)
+            console.log(product.name)   // product.name , this syntax is called dot notation. Used to access a value in object and also to change the value.
+
+            product.name = 'Cotton socks'   // changing the value
+            product.socks = 470
+            console.log(product)
+
+            product.made_in = 'India' // Dot notation used for adding a new property-value pair
+            console.log(product)
+
+            delete product.made_in      // we can also delete property
+            console.log(product)
+
+            console.log(product.notExist)// If we access a property that doesn't exist, the value will be undefined.
+
+            console.log(typeof product)
+
+            */
+
+            console.log('Using bracket notation')
+
+            /*  
+
+            const product2 = {
+                name : 'shirt',
+                price : 1000,
+                ['delivery-time'] : '1 day', // adding values to the object using bracket notation
+                'made-in' : 'India' // brackets are not neccessary for strings, but needed on using variables (dynamic key => key values changes not static), computations .
+               
+            }
+
+            console.log(product2)
+            console.log(product2['name']) // Accessing values using bracket notation.
+            
+            // console.log(product.delivery-time)  // ***gives error as JavaScript thinks it as minus operator . so use bracket notation
+
+            console.log(product2['delivery-time'])
+
+            // USING VARIABLES inside bracket
+
+            const key = 'name'
+
+            const product3 = {
+                [key] : 'Watch',    // using variables
+                price : 950,
+                rating : {
+                    stars : 4.5,
+                    count : 87
+                } ,       // an object can have any type of values => strings, numbers, boolean, objects itself(nested object), fns etc.
+                fn : function fn1(){
+                    console.log('Function inside object')
+                }   // fn inside an object is called method
+
+            }
+
+            console.log(product3)
+
+            console.log(product3.rating.stars)  // Accessing values of inner object using dot notation
+            console.log(product3['rating']['count'])    // Accessing values of inner object using bracket notation
+             
+            product3.fn()   // Accessing methods 
+            console.log(typeof console,'and', typeof console.log) // console.log() is actually a method. console is an object provided by javascript. And log is a fn that is saved inside a console object. so it is a method. Another eg of method : Math.random()
+
+
+            // console and Math are called built-in objects as they are provided by the language. Other built-in objects are JSON and localStorage
+
+            */
+
+            // MORE DETAILS OF OBJECT
+
+           // Null is one of the falsy values in JS. It is similar to the value undefined. Both of them represent something that doesn't have a value.
+           // Null is used when we intentionally want something to be empty. ie we wanna say it has no value i will assign this later. undefined means variable has been declared but not assigned any value yet .
+           // null is of type object where as undefined is of type undefined.
+
+           console.log('Auto-boxing')
+
+           console.log('hello'.length)  // Strings can also have properties. length property tells us how many characters or letters are in the string
+           console.log('hello')
+        </script>
+    </body>
+</html>
