@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects Part 3</title>
+    </head>
+    <body>
+        OBJECTS MORE DETAILS : <p></p>
+
+        Null is one of the falsy values in Js. It is similar to the value undefined. Both of them represent something that does not have a value. <p></p>
+        Null is used when we intentionally want something to be empty. Like we wanna say it has no value now but I will assign this later. <p></p>
+        Undefined means variable has been declared but not assigned any value yet. Null is of type object whereas undefined is of type undefined. <p></p>
+
+        AUTO-BOXING : <p></p>
+
+        Js automatically wraps strings, numbers , booleans in an object. This is called auto-boxing. <p></p>
+        This object has properties and methods. eg: length, toUppercase(), toString(), etc. Auto-boxing won't work with null and undefined.
+
+        <p>OBJECTS ARE REFERENCES</p>
+
+        Objects created are stored somewhere in memory. And variable object only stores its reference. This is to make the language more efficient. 
+
+        <script>
+
+            console.log('Auto-boxing...')
+
+            /*
+            console.log('hello'.length) // like objects, strings can also have properties and methods due to auto-boxing. length property tells us how many characters or letters are in the string.
+            console.log('hello'.toUpperCase())
+            console.log((3).toString(), true.toString())
+            */
+
+
+            console.log('Objects as references...')
+            
+            /*
+
+            const obj1 = {
+                msg : 'hello'
+            }   // obj1 stores the reference of where obj1 is stored.
+
+            const obj2 = obj1 // obj2 now has copy of reference . ie now both obj1 and obj2 points to same object stored somewhere in memory.
+            console.log('obj2 with same refernce :',obj2)
+
+            obj1.msg = 'Good job' // changing the property msg in obj1 even though it is const. Because obj1 doesn't contain actual obj but reference.
+            console.log('changing msg in obj1 :',obj1)    //  const prevent us from changing reference in variable but it doesn't prevent us reaching into the reference and changing the obj that is pointing to.
+
+            console.log('change also affect obj2 :',obj2)// obj2 also effect the changes as both has same reference.
+            
+
+            console.log('Comparing objects...')     // We can't compare objects directly.
+
+            const obj3 = {
+                msg : 'Good job'
+            }
+
+            console.log(obj3 === obj1) // false even though both has same objects. This is because both of them store different references. And these references are compared (not the values inside reference).
+
+            console.log(obj2 === obj1) // true because obj2 has same reference of obj1.
+
+            console.log(obj1.msg === obj3.msg)  // To check values we check it manually 
+
+            //  To create a separate copy of obj1 instead of reference do shallow copy
+
+            const obj4 = {...obj1}
+            console.log('exact copy of obj1 : ',obj4)
+
+            */
+
+            // SHORT CUTS FOR OBJECTS
+
+            console.log('1) Destructuring short cut...')
+
+            /*
+            const obj1 = {
+                msg: 'hello',
+
+            }
+
+            const {msg} = obj1  // const msg = obj5.msg // instead of this we use this . This is called destructuring
+            console.log('destructured msg :',msg)
+
+            const obj2 = {      // using destructure short cut for multiple property
+                msg2 : 'hello',
+                price : 799
+            }
+
+            const {msg2, price} = obj2
+            console.log(msg2, price)    // destructuring is an easier way to take properties out of an object.
+
+            */
+
+            console.log('2) Shorthand Property, short cut...')
+
+            /*
+            const obj1 = {
+                msg : 'hello',
+                price : 799
+            }
+
+            const {msg, price} = obj1
+
+            const obj2 = {
+                // msg : msg // takes what is inside msg variable and substitute it into the code.
+                msg, // instead of above code we can use this if both property and variable name are same.
+                price
+            }   // This short cut is cld short hand property.
+
+            
+            console.log(obj2)
+            */
+        
+            console.log('Short hand method, short cut...')
+
+            const obj = {
+                msg : 'hello',
+                price : 799
+            }
+            const {msg, price} = obj
+
+            const obj2 = {
+                msg,
+                price,
+                /*
+
+                method : function fn1(){
+                    console.log('method')
+                }
+                    */  // instead of this we can write below code. This short cut is short hand method.
+
+                method(){
+                    console.log('method')
+                }
+            }
+
+            obj2.method()
+
+        </script>
+    </body>
+</html>
+
+<!--Summary : 
+    
+    Objects groups related values together
+    Added a score to Rock paper scissors game
+    Built in objects (JSON, localStorage)
+    null, auto-boxing , references
+    Shortcuts (destructuring, shorthand property, shorthand method)
+
+    -->

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 8 : Exercises</title>
+    </head>
+    <body>
+        <!--
+            1) Create an object product with name 'basket ball' and price 2095 cents as items. And display in console.
+            2) We want to increase the price by 500 cents. Use dot notation to increase the price and display updated object.
+            3) Using bracket notation, add a property 'delivery-time' to the object with value '3-days'. Display in console.
+            4) Create a function 'comparePrice(product1, product2) and returns the product that is less expensive. Create 2 products and try the fn.'
+            5) Create a function 'isSameProduct(product1, product2)' which returns true if 2 products have the same values inside ('name' and 'price'). if not, return false. Create 2 products and try out the function. 
+            6) Convert a string to all lowercase with javascript
+            7) Repeat a string many times
+            8) Add localStorage to calculator project
+
+            9) CHALLENGE : Coin flip game improving. Create 2 buttons heads and tails. Create a fn playGame(guess) to reuse the code.
+               Create a score object {wins : 0, losses : 0}, update the score each time after playing and display the score in console.
+               Use localstorage to save and load the score 
+
+        
+        -->
+        <script>
+
+            /*
+
+            // ans 1
+
+            const product = {
+                name : 'Basket Ball',
+                price : 2095
+            }
+            console.log(product)
+
+            // ans 2
+
+            product.price = product.price + 500
+            console.log(product)
+
+            */
+
+            // ans 3
+
+            const product = {
+                name : 'Basket Ball',
+                price : 2595,
+                ['delivery-time'] : '3-days'
+            }
+
+            console.log(product)
+
+            // ans 4
+
+            function comparePrice(product1, product2){
+
+                if(product1.price === product2.price){
+                    console.log('Both prices are equal')
+                }else if(product1.price < product2.price){
+                    console.log(product1.name + ' is less expensive')
+                }else{
+                    console.log(product2.name + ' is less expensive')
+                }
+            }
+
+            product2 = {
+                name: 'watch',
+                price : 1500
+            }
+
+            comparePrice(product, product2)
+
+            // ans 5
+
+            function isSameProduct(product1, product2){
+                if((product1.name === product2.name) && (product1.price === product2.price)){
+                    return true
+                }else {
+                    return false
+                }
+            }
+
+            console.log(isSameProduct(product, product2))
+
+            // ans 6
+
+            console.log('Good Morning'.toLowerCase())
+
+            // ans 7
+
+            console.log('test '.repeat(2))
+
+            
+
+
+
+        </script>
+    </body>
+</html>

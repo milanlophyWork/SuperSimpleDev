@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coin Flip Game</title>
+    </head>
+    <body>
+        <button id="heads" onclick="
+            guess = 'heads'
+
+            this.style.borderColor = 'green'
+            document.getElementById('tails').style.borderColor = ''
+        ">Heads</button>
+
+        <button id= 'tails' onclick="
+            guess = 'tails'
+
+            this.style.borderColor = 'green'
+            document.getElementById('heads').style.borderColor = ''
+        ">Tails</button>
+
+        <button onclick="
+            playGame(guess)        
+        ">Flip Coin</button>
+
+        <script>
+
+            let guess = ''
+            const score  = JSON.parse(localStorage.getItem('score')) || {
+                wins : 0,
+                lose : 0
+            }
+            
+            function playGame(guess){
+                const value = Math.random()
+                let result = ''
+
+                if(value < 0.5){
+                    result = 'heads'
+                }else{
+                    result = 'tails'
+                }
+
+                if(guess === result){
+                    score.wins++
+                    console.log(`Computer picked ${result}. You guessed right !`)
+                }else{
+                    score.lose++
+                    console.log(`Computer picked ${result}. Sorry you lose !`)
+                }
+
+                console.log(`Your score : Wins - ${score.wins}  Lose - ${score.lose}`)
+                localStorage.setItem('score', JSON.stringify(score))
+
+                document.getElementById('heads').style.borderColor = ''
+                document.getElementById('tails').style.borderColor = ''
+
+            }
+
+        </script>
+    </body>
+</html>
