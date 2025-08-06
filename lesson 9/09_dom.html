@@ -4,8 +4,47 @@
         <title>Document Object Model (DOM)</title>
     </head>
     <body>
+        Dom is another built in object called document object. document.title can be used to access the title of webpage and also to change the webpage. document.body gives us access to html body element. ie we can have html elements inside JS. DOM commbines Js and html together.<p></p>
+        When an html element is inside Js , the html element is converted to Js object. innerhtml property in body object gives access to all html inside body. innerHTML can be replaced with new html code instead of text. <p></p>
+        DOM methods<p></p>
+
+        document.querySelector() lets us get any element from the page and put it inside Js. Every html element in Js (except input element because input elements have no html inside) has a property called innerHTML to access the html inside that element. querySelector only access first matching element.<p></p>
+        To get other elements we use class attribute. class attribute adds a label to the elements. Use dot at starting for access.<p></p>
+
+        Whenever we get a value from DOM , the value will be a string .So to perform math, convert string to number using the built-in fn Number().<p></p>
+        <button>Hello</button>
+        <button class="js-Btn2">2ndBtn</button>
         <script>
+            /*
             
+            document.body.innerHTML = 'hello'   // document is a built-in-object. body is another object in document which is accessed by dot operator. innerHTML property within body object removes every other content in webpage and replace it with hello text. ie document object and webpage are linked together.
+            document.title = 'Document Object Model'    // document object changes webpage title. ie document object represents / models the webpage. Hence we call it as document object model/ DOM. Besides properties like body, title, etc, document obj also has methods.
+            
+            */
+            
+            /*
+            console.log(document.title)
+            console.log(document.body)
+
+            console.log(typeof document.body)   // => object ie body html element is now just a Js object with properties and methods.
+            console.log(document.body.innerHTML)    // displays html inside body.
+            document.body.innerHTML = '<button>New html code</button>'
+            */
+
+
+            // DOM methods ... (methods are fns inside object)
+
+            console.log(document.querySelector('button') )   // this will get first button element from the page inside our Js. This button is now just a Js object as we said earlier, any element inside Js is a Js object with properties and methods.
+            console.log(document.querySelector('button').innerHTML)     // Accessing html inside button (ie hello) using innerHTML
+
+            // document.querySelector('button').innerHTML = 'Changed'  // changing the button inner html
+            document.querySelector('button')
+                .innerHTML = 'changed'          // for easy reading use htis short cut
+
+            console.log(document.querySelector('.js-Btn2'))    // .js-Btn2 is cld a cls selector. // use js at starting of class names to refer that the button is used in js
+            const btnElement = document.querySelector('.js-Btn') // we usually ends with Element or Elem to make it clear that it contains an html element.
+            
+
         </script>
     </body>
 </html>

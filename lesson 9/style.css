@@ -1,0 +1,24 @@
+button{
+    background: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin-bottom: 35px;
+}
+.calculate{
+    font: Arial;
+    background: green;
+    color: white;
+    border-radius: 0;
+    padding: 12px 15px;
+    font-weight: normal;
+    margin: 0px;
+}
+#cost{
+    padding: 10px;
+}
+.game{
+    margin-top: 55px;
+}

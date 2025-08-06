@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM projects</title>
+    </head>
+
+    <body>
+        <p>YouTube Subscribe Button</p>
+
+        <button class="js-subscribeBtn" onclick="
+            subscribeHandler()
+        ">Subscribe</button>
+
+        <p>Rock Paper Scissors</p>
+        <a href="http://127.0.0.1:5500/lesson%209/09_RockPaperScissors.html">Click here</a>
+
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+
+        <input type="text" class="js-cost" placeholder="Cost of order"/>
+        <button class="js-calculate" onclick="
+            calculateTotal()
+        ">Calculate</button>
+
+        <p class="js-total"></p>
+
+        <a href="http://127.0.0.1:5500/lesson%209/09_css_version_DOMproject.html">CSS version of these projects</a>
+
+
+        <script>
+            function subscribeHandler(){
+
+                const btnElement = document.querySelector('js-subscribeBtn')
+
+                if(btnElement.innerText = 'Subscribe'){ // checking innerText instead of innerHTML because innerHTML reads newline, spaces extra 
+                    btnElement.innerHTML = 'Subscribed'
+                }else{
+                    btnElement.innerHTML = 'Subscribe'
+                }
+            }
+
+            function calculateTotal(){
+                const inputElement = document.querySelector('.js-cost')
+                let cost = Number(inputElement.value)
+
+                if(cost < 40){
+                    cost += 10
+                }
+                document.querySelector('.js-total').innerHTML = `$${cost}`
+            }
+        </script>
+    </body>
+</html>
+
