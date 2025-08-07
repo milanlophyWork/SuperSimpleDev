@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>More About Js and Window Object</title>
+    </head>
+    <body>
+
+        Whenever we get a value from DOM, the value will be a string. So to perform math, we need to convert string to number using the built-in-function Number(). Likewise, converting number to string is done using the built-in-function String().<p></p>
+        use onkeydown instead of onclick to run on pressing any key. click and keydowns are called events. onclick and onkeydown are called event listeners. Other event listeners are onscroll, onmouseenter, onmouseleave, ... Every event listeners get an event object.<p></p>
+
+        <p>Window object : </p>
+
+        Window object is another built-in-object. Document object represent the web page. Window object represent the browser. Hence everything inside browser is inside the window object.<p></p>
+        Web page is inside browser. So the document object that represent web page is inside the window object. console is inside browser , so it is also inside window object. Popups are also in browser so inside window obj too.<p></p>
+
+        But we haven't use window.console, window.alert, etc. We just use the short cut console, alert(), ... Because js automatically adds window to the beginning of the same.
+        <script>
+
+            console.log(String(25),' is a ', typeof String(25))
+            console.log('math is performed: ','25' - 5) // display 20 // type coercion => automatic type conversion. If a string only contains a number and we perform math(-,*,/, no addition because JS consider it as concatenation) on it, then string will be automatically converted to a number.
+            console.log('concatenation is performed: ','25' + 5) // display 255 // hence always do math using numbers not strings . If strings, convert to number as given below.
+            console.log(Number('25') + 5)
+
+
+            console.log(window)
+            console.log(window.document)
+            window.console.log('From Window')   
+            // window.alert('Hello')
+
+        </script>
+    </body>
+</html>

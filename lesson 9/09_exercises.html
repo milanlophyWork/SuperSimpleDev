@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 9 Exercises</title>
+    </head>
+    <body>
+
+        <!--
+            1) Create a button '9a'. Use document.querySelector('button') to get the button from the page, and then display it in the console.
+            2) Create another button '9b'. Using javaScript change the text in second button to '9b done!'
+            3) Create 2 buttons 'heads' and 'tails' . And  create a paragraph underneath. When clicking the 'heads' button, display 'You chose: heads' in the paragraph. When the 'tails' button, display 'You chose: tails'
+            4) Create a text box with 'name' as placeholder and a submit button. When clicking 'Submit', display 'Your name is ..[text entered]..' on the page.
+            5) Modify exercise 9d so that when you press 'Enter' it displays the same message as above on the page.
+            6) Create a function to reuse the code
+
+            7) Create a new file and copy the code in 09_dom_project.html. In the amazon shipping calculator, enter a cost of 7.99 and click 'Calculate'. What issue do you use ? Find a fix for this issue.
+            8) Create a textbox with placeholder 'Type something'. Whenever we type in the text box, update the text on the page (hint : use onkeyup => runs code after we press a key and release it, ie on key comes up)
+            9) Improving cart quantity project. Make a copy first. Display quantity on page on update . Also display quantity when page first loads
+            10) Improving calculator project. Make a copy first. Display calculation on page . When the page first loads, if a calculation exists in localStorage, display it on the page.
+
+        
+        -->
+
+        <button onclick="
+            console.log(document.querySelector('button'))       // ans 1
+        ">9a</button>
+
+        <button class="js-9b" onclick="
+            document.querySelector('.js-9b').innerHTML = '9b done!'     // ans 2
+        ">9b</button>
+
+        <p>
+            <button onclick="
+                document.querySelector('.js-guess').innerHTML = 'You chose: heads'      // ans 3
+            ">heads</button>      
+
+            <button onclick="
+                document.querySelector('.js-guess').innerHTML = 'You chose: tails'
+            ">tails</button>
+        </p>
+
+        <p class="js-guess"></p>
+
+        <!--  ans 4 and ans 5 -->
+
+        <input type="text" placeholder="Name" class="js-nameInput" onkeydown="  
+            displayOnEnter(event)
+
+        /*  if(event.key === 'Enter'){
+                document.querySelector('.js-name').innerHTML = `Your name is: ${value}` // no need of inputElement.value as inside input just call the property value manually.
+            }    */
+        "/>
+        
+        <button onclick="
+            displayName()
+        ">Submit</button>
+
+        <p class="js-name"></p>
+
+        <!-- ans 8 -->
+
+        <input type="text" placeholder="Type something" onkeyup="
+            typeSomething(event)
+        "/>
+        <p class="js-type"></p>
+
+
+       
+        
+
+        <script>
+                const inputElement = document.querySelector('.js-nameInput')
+
+            function displayName(){ // ans 6
+
+                document.querySelector('.js-name').innerHTML = `Your name is: ${inputElement.value}`    // Remember that input element has no innerHTML property instead it has value property.
+            }
+            function displayOnEnter(event){
+                if(event.key === 'Enter'){
+                    document.querySelector('.js-name').innerHTML = `You name is ${inputElement.value}`
+                }
+            }
+
+            function typeSomething(event){
+
+                const displayElement = document.querySelector('.js-type')
+
+                if(event.key.length === 1){ // checks entered key is of 1 character, so avoids Enter, Capslock, backspace, etc
+
+                    displayElement.innerHTML += event.key
+                    
+                }else if( event.key==='Backspace'){
+
+                    let newText = ''
+
+                    for(let i = 0; i< displayElement.innerHTML.length - 1; i++){
+                        newText += displayElement.innerHTML[i]
+                    }
+                    displayElement.innerHTML = newText
+                }
+
+           }
+
+       
+
+        </script>
+    </body>
+</html>

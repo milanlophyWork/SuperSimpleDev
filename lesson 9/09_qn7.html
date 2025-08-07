@@ -1,13 +1,10 @@
-
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DOM projects</title>
+        <title>Qn 7 Answer</title>
     </head>
-
     <body>
         <p>YouTube Subscribe Button</p>
-
         <button class="js-subscribeBtn" onclick="
             subscribeHandler()
         ">Subscribe</button>
@@ -16,15 +13,14 @@
         <a href="http://127.0.0.1:5500/lesson%209/09_RockPaperScissors.html">Click here</a>
 
         <p>Amazon Shipping Calculator</p>
-        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Order under $40 = +$40 shipping.</p>
         <p>Orders over $40 = FREE shipping.</p>
 
-        <input type="text" class="js-cost" placeholder="Cost of order" onkeydown= "
-           //console.log(event)   // every event listener gets an event object.
-           calculateOnEnter(event)
-
+        <input type="text" placeholder="Cost of order" class="js-cost" onkeydown="
+            calculateOnEnter(event)
         "/>
-        <button class="js-calculate" onclick="
+
+        <button onclick="
             calculateTotal()
         ">Calculate</button>
 
@@ -32,13 +28,12 @@
 
         <a href="http://127.0.0.1:5500/lesson%209/09_css_version_DOMproject.html">CSS version of these projects</a>
 
-
         <script>
+            
             function subscribeHandler(){
+                const btnElement = document.querySelector('.js-subscribeBtn')
 
-                const btnElement = document.querySelector('js-subscribeBtn')
-
-                if(btnElement.innerText = 'Subscribe'){ // checking innerText instead of innerHTML because innerHTML reads newline, spaces extra 
+                if(btnElement.innerText === 'Subscribe'){
                     btnElement.innerHTML = 'Subscribed'
                 }else{
                     btnElement.innerHTML = 'Subscribe'
@@ -48,21 +43,22 @@
             function calculateTotal(){
                 const inputElement = document.querySelector('.js-cost')
                 let cost = Number(inputElement.value)
-
+                
                 if(cost < 40){
-                    cost += 10
+                    //cost * 100 // converting to cents 
+                    cost = ((cost * 100) + 1000 )/100 // (+1000) => adding shipping cost.  1 dollar = 100 cents => 10 dollar = 1000 cents
+                    // (/100 ) => converting back to dollars
                 }
+
                 document.querySelector('.js-total').innerHTML = `$${cost}`
             }
 
             function calculateOnEnter(event){
-                if(event.key === 'Enter'){      // event does not exist inside this function. so we have to put the event object into the fn as parameter.
+
+                if(event.key === 'Enter'){
                     calculateTotal()
                 }
             }
         </script>
     </body>
 </html>
-
-
-
