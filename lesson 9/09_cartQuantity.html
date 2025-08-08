@@ -1,17 +1,15 @@
 
-
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cart Quantity</title>
+        <title>Cart quantity</title>
     </head>
     <body>
         <p>Cart quantity</p>
 
         <button onclick="
             updateCart('show')
-        ">Show quantity</button>
-
+        ">Show Quantity</button>
         <button onclick="
             updateCart('add', 1)
         ">Add to Cart</button>
@@ -26,21 +24,29 @@
             <button onclick="
                 updateCart('add', 4)
             ">+4</button>
+            <button onclick="
+                updateCart('add',5)
+            ">+5</button>
         </p>
 
         <p>
             <button onclick="
                 updateCart('remove', 1)   
-            ">Remove from cart</button>
+            ">Remove from Cart</button>
             <button onclick="
-                updateCart('remove',2)
+                updateCart('remove', 2)
             ">-2</button>
+            <button onclick="
+                updateCart('remove', 3)
+            ">-3</button>
         </p>
-        
-        <p><button onclick="
-            updateCart('reset')
-            displayQuantity()
-        ">Reset</button></p>
+
+        <p>
+            <button onclick="
+                updateCart('reset')
+            ">Reset</button>
+            
+        </p>
 
         <p class="js-quantity"></p>
 
@@ -48,49 +54,43 @@
             let cart = 0
             displayQuantity()
 
-            function updateCart(action, value = 0){
+            function updateCart(action, value){
                 if(action === 'show'){
                     value = 0
-                }else if(action === 'add' ){
+                }else if(action === 'add'){
+
                     if(cart < 10 && cart + value <= 10){
                         cart += value
-                    }
-                    else if(cart < 10 && cart + value > 10){
-                        // cart += value -1
-                        alert('Exceeds the limit on adding')
-                        return
-                    }
-                    else{
+                    }else if(cart < 10 && cart + value > 10){
+                        alert('Exceeds limit on adding')
+                    }else {
                         alert('Cart is full')
-                        return
                     }
                     
                 }else if(action === 'remove'){
+
                     if(cart === 0){
                         alert('Cart is empty')
-                        return
                     }else if(cart > 0 && cart - value >= 0){
                         cart -= value
-                    }else if(cart > 0 && cart - value < 0){
-                        if(cart - (value -1) >= 0){
-                            cart -= (value-1)
-                            alert(`Removed ${value-1} items from cart`)
-                            
-                        }
-                        
+                    }else if(cart > 0 && cart - (value - 1) >= 0){
+                        cart -= value -1
+                        alert(`Removed ${value - 1} items from cart`)
+                    }else {
+                        alert('Not enough items')
                     }
                     
                 }else if(action === 'reset'){
                     cart = 0
                 }
 
-                console.log(`Cart quantity : ${cart}`)
                 displayQuantity()
             }
 
             function displayQuantity(){
-                document.querySelector('.js-quantity').innerHTML = `Cart quantity : ${cart}`
+                document.querySelector('.js-quantity').innerHTML = `Cart quantity: ${cart}`
             }
+
         </script>
     </body>
 </html>

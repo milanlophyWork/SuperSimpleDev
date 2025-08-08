@@ -1,4 +1,5 @@
-<!-- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
     <head>
         <title>Calculator</title>
@@ -6,128 +7,6 @@
     <body>
         <p>Calculator</p>
 
-        <p>
-            <button onclick="
-                updateCalculation('1')   
-            ">1</button>
-            <button onclick="
-                updateCalculation('2')
-            ">2</button>
-            <button onclick="
-                updateCalculation('3')
-            ">3</button>
-            <button onclick="
-                updateCalculation('+')
-            ">+</button>
-        </p>
-
-        <p>
-            <button onclick="
-                updateCalculation('4')  
-            ">4</button>
-            <button onclick="
-                updateCalculation('5')
-            ">5</button>
-            <button onclick="
-                updateCalculation('6')
-            ">6</button>
-            <button onclick="
-                updateCalculation('-')
-            ">-</button>
-        </p>
-
-        <p>
-            <button onclick="
-                updateCalculation('7')   
-            ">7</button>
-            <button onclick="
-                updateCalculation('8')
-            ">8</button>
-            <button onclick="
-                updateCalculation('9')
-            ">9</button>
-            <button onclick="
-                updateCalculation('*')
-            ">*</button>
-        </p>
-
-        <p>
-            <button onclick="
-                updateCalculation('/')   
-            ">/</button>
-            <button onclick="
-                updateCalculation('0')
-            ">0</button>
-            <button onclick="
-                updateCalculation('.')
-            ">.</button>
-            <button onclick="
-            updateCalculation('=')
-            ">=</button>
-
-            <p></p>
-
-            <button onclick="
-                calculation = ''
-                localStorage.removeItem('calculation')
-                display()
-            ">Reset</button>
-        </p>
-
-        <p class="js-result"></p>
-
-        <script>
-
-            
-            let calculation = JSON.parse(localStorage.getItem('calculation')) || ''
-            console.log(calculation)
-            display()
-
-            /*
-
-            if(calculation){
-                console.log(calculation)
-            }else{
-                console.log('Start your calculation')
-            }
-                */
-            
-
-            function updateCalculation(value){
-                if(value === '='){
-                    calculation = eval(calculation)
-                    console.log(calculation)
-                    localStorage.setItem('calculation', JSON.stringify(calculation))
-                    display()
-                    calculation = ''
-                    
-                }else{
-                    calculation += value
-                    console.log(calculation)
-                    display()
-                }
-
-                
-                
-            }
-            
-            function display(){
-                document.querySelector('.js-result').innerHTML = calculation
-            }
-            
-        </script>
-    </body>
-</html>
- -->
-
- <!DOCTYPE html>
- <html>
-    <head>
-        <title>Calculator</title>
-    </head>
-    
-    <body>
-        <p>Calculator</p>
         <button onclick="
             updateCalculation('1')
         ">1</button>
@@ -172,46 +51,66 @@
         </p>
 
         <p>
-            <button onclick="
-                updateCalculation('.')   
-            ">.</button>
-            <button onclick="
-                updateCalculation('0')
-            ">0</button>
-            <button onclick="
-                updateCalculation('/')
-            ">/</button>
-            <button onclick="
-                updateCalculation('=')
-            ">=</button>
-
-        </p>
-
         <button onclick="
-            calculation = ''
-            localStorage.removeItem('calculation')
+            updateCalculation('.')   
+        ">.</button>
+        <button onclick="
+            updateCalculation('0')
+        ">0</button>
+        <button onclick="
+            updateCalculation('/')
+        ">/</button>
+        <button onclick="
+            updateCalculation('=')
+        ">=</button>
+        </p>
+        <button onclick="
+            updateCalculation('back')
+
+        ">Back</button>
+        <button onclick="
+            updateCalculation('reset')
         ">Reset</button>
 
         <p class="js-result"></p>
 
         <script>
-
             let calculation = JSON.parse(localStorage.getItem('calculation')) || ''
+            displayResult()
 
             function updateCalculation(value){
                 if(value === '='){
-                    calculation = eval(calculation)
-                    console.log(calculation)
-                    calculation = ''
-                }else{
-                    calculation += value
-                    console.log(calculation)
-                }
-                
+                calculation = eval(calculation)
+                displayResult()
+                calculation = ''
 
-                localStorage.setItem('calculation', JSON.stringify(calculation))
+            }else if(value === 'back'){
+
+                let newNumber = ''
+                for(let i=0; i<calculation.length-1; i++){
+                newNumber += calculation[i]
+                }
+                calculation = newNumber
+                displayResult()
+
+            }else if(value === 'reset'){
+                calculation = 0
+                localStorage.removeItem('calculation')        
+                displayResult()
+            }
+            else {
+                calculation += value
+                displayResult()
+
             }
 
+            localStorage.setItem('calculation', JSON.stringify(calculation))
+            }
+
+            function displayResult(){
+                document.querySelector('.js-result').innerHTML = calculation
+            }
         </script>
     </body>
- </html>
+</html>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Html Css Js Together</title>
+
+        <style>
+            p, a{
+                font: 16px Arial;
+            }
+            .subscribeBtn{
+                background: black;
+                color: white;
+                font-weight: bold;
+                border: none;
+                border-radius: 50px;
+                padding: 10px 15px;     /* space on inside element is padding */
+                margin-bottom: 35px;    /* space on outside element is margin */
+                cursor: pointer;
+            }
+            .is-subscribed{
+                background: rgb(240,240,240);   /* this is rgb value. (red,green,blue => computer can create any colors using these 3 colors) Each color goes from 0 to 255. 0 means less color and darker, 255 means more color and lighter  */
+                color: black; 
+            }
+            .cost{
+                padding: 10px;
+                font-size: 15px;
+            }
+            .calculate{
+                padding : 12px 15px;
+                background : green;
+                border: none;
+                color: white;
+                font-size: 15px;
+                cursor: pointer;
+            }
+            .game{
+                margin-top: 55px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <!-- Html creates the content , css changes the appearence, Js makes it interactive. -->
+
+        <p>YouTube Subscribe Button</p>
+        <button class="js-subscribeBtn subscribeBtn" onclick="
+            subscribeHandler()
+            
+        ">Subscribe</button>
+
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+
+        <input type="text" placeholder="Cost of order" class="js-cost cost" onkeyup="calculateOnEnter(event)"/>
+        <button class="calculate" onclick="
+            calculateTotal()
+        ">Calculate</button>
+
+        <p class="js-total"></p>
+
+        <p class="js-game game">Rock Paper Scissors</p>
+        <a href="http://127.0.0.1:5500/lesson%209/09_RockPaperScissors.html">Click here</a>
+        <script>
+
+            function subscribeHandler(){
+                const btnElement = document.querySelector('.js-subscribeBtn')
+
+                if(btnElement.innerText === 'Subscribe'){
+                    btnElement.innerHTML = 'Subscribed'
+                    // btnElement.style.background = 'rgb(240,240,240)'
+                    // btnElement.style.color = 'black' // instead we add a class when this btn is clicked and style it in css
+
+                    btnElement.classList.add('is-subscribed')   // classList is an object with methods and properties. One method is called add() which adds a class to an element. While adding a class no need of dot at beginning
+
+
+                }else {
+                    btnElement.innerHTML = 'Subscribe'
+                    // btnElement.style.background = 'black'
+                    // btnElement.style.color = 'white'
+
+                    btnElement.classList.remove('is-subscribed')    // remove() method removes a class from an element
+                }
+                
+            }
+
+            function calculateTotal(){
+                const inputElement = document.querySelector('.js-cost')
+                let cost = Number(inputElement.value)
+
+                if(cost < 40){
+                    cost += 10
+                }
+
+                document.querySelector('.js-total').innerHTML = `$${cost}`
+            }
+
+            function calculateOnEnter(event){
+                if(event.key === 'Enter'){
+                    calculateTotal()
+                }
+            }
+
+        </script>
+    </body>
+</html>
