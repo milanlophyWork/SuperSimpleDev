@@ -38,7 +38,8 @@ function playGame(playerMove){
     }
 
     document.querySelector('.js-result').innerHTML = result
-    document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`
+    document.querySelector('.js-moves').innerHTML = `You <img src = "../img/${playerMove}-emoji.png" class= "img" > 
+    <img src = "../img/${computerMove}-emoji.png " class = "img"> Computer`
     updateScore()
 
     localStorage.setItem('score', JSON.stringify(score))

@@ -51,15 +51,15 @@
 
         <button class="js-rock rock button" onclick="
             playGame('rock')
-        "><img src="img/rock-emoji.png" alt="Rock" class="img" ></button>
+        "><img src="img/rock-emoji.png" alt="Rock" class="rock img" ></button>
 
         <button class="js-paper paper button " onclick="
             playGame('paper')
-         "><img src="img/paper-emoji.png" alt="paper" class="img"></button>   <!-- img is called a void element as it doesn't require a closing tag. src => source. It tells the computer which file or image to load-->
+         "><img src="img/paper-emoji.png" alt="paper" class="paper img"></button>   <!-- img is called a void element as it doesn't require a closing tag. src => source. It tells the computer which file or image to load-->
 
         <button class="js-scissors scissors button" onclick="
             playGame('scissors')
-        "><img src="img/scissors-emoji.png" alt="scissors" class="img"></button>
+        "><img src="img/scissors-emoji.png" alt="scissors" class="scissors img"></button>
 
         <p class="js-result result"></p>
         <p class="js-moves moves">
@@ -122,8 +122,8 @@
 
 
                 document.querySelector('.js-result').innerHTML = result
-                document.querySelector('.js-moves').innerHTML = `You <img src = "img/${playerMove}-emoji.png" class = "img"> 
-                <img src="img/${computerMove}-emoji.png" class= "img"> Computer`
+                document.querySelector('.js-moves').innerHTML = `You <img src = "img/${playerMove}-emoji.png" class = "js-playerImg player img"> 
+                <img src="img/${computerMove}-emoji.png" class= "js-computerImg computer img"> Computer`
                 updateScore()
 
                 localStorage.setItem('score', JSON.stringify(score))
