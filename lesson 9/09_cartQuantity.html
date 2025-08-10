@@ -59,12 +59,12 @@
                     value = 0
                 }else if(action === 'add'){
 
-                    if(cart < 10 && cart + value <= 10){
+                    if(cart === 10){
+                        alert('Cart is full !')
+                    }else if(cart < 10 && cart + value <= 10){
                         cart += value
-                    }else if(cart < 10 && cart + value > 10){
+                    }else{
                         alert('Exceeds limit on adding')
-                    }else {
-                        alert('Cart is full')
                     }
                     
                 }else if(action === 'remove'){
@@ -73,11 +73,8 @@
                         alert('Cart is empty')
                     }else if(cart > 0 && cart - value >= 0){
                         cart -= value
-                    }else if(cart > 0 && cart - (value - 1) >= 0){
-                        cart -= value -1
-                        alert(`Removed ${value - 1} items from cart`)
                     }else {
-                        alert('Not enough items')
+                        alert('Cart has no enough items !')
                     }
                     
                 }else if(action === 'reset'){
@@ -94,3 +91,5 @@
         </script>
     </body>
 </html>
+
+
