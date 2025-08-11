@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Qn 7 Css Version </title>
+        <style>
+            p,a{
+                font: 16px, Arial;
+            }
+            .subscribeBtn{
+                background: black;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 50px;
+                font-weight: bold;
+                margin-bottom: 35px;
+            }
+            .cost{
+                padding: 10px;
+                font-size: 15px;
+            }
+            .calculate{
+                background: green;
+                border: none;
+                padding: 12px 15px;
+                color: white;
+                font-size: 15px;
+            }
+            .is-error{
+                color: red;
+                
+            }
+            .game{
+                margin-top: 55px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>YouTube Subscribe Button</p>
+        <button class="js-subscribeBtn subscribeBtn" onclick="subscribeHandler()">Subscribe</button>
+
+        <p>Amazon shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+
+        <input type="text" placeholder="Cost of order" class="js-cost cost" onkeydown ="calculateOnEnter(event)"/>
+        <button class="calculate" onclick="calculateTotal()">Calculate</button>
+
+        <p class="js-total"></p>
+
+        <p class="game">Rock Paper Scissors</p>
+        <a href="http://127.0.0.1:5500/lesson%209/09_RockPaperScissors.html">Click here</a>
+
+        <p></p>
+        <script>
+
+            let cost = 0
+            let error = false
+
+            function subscribeHandler(){
+                const btnElement = document.querySelector('.js-subscribeBtn')
+
+                if(btnElement.innerHTML === 'Subscribe'){
+                    btnElement.innerHTML = 'Subscribed'
+                }else{
+                    btnElement.innerHTML = 'Subscribe'
+                }
+            }
+
+            function calculateTotal(){
+                const inputElement = document.querySelector('.js-cost')  
+                cost = Number(inputElement.value) 
+
+                if(cost >= 0 && cost <= 40 ){
+                    error = false
+                    cost += 10
+                    displayCost()
+
+                }else if(cost < 0){
+                    error = true
+                    cost = 'Error: cost cannot be less than $0'
+                    displayCost()
+                }else{
+                    error = false
+                    displayCost()
+                }
+
+            }
+
+            function displayCost(){
+
+                const totalElement = document.querySelector('.js-total')
+
+                if(error){
+                    totalElement.classList.add('is-error')
+                    totalElement.innerHTML = cost
+                }else{
+                    totalElement.classList.remove('is-error')
+                    totalElement.innerHTML = `$${cost}`
+                }
+
+            }
+
+            function calculateOnEnter(event){
+                if(event.key === 'Enter'){
+                    calculateTotal()
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 10: Exercises</title>
+
+        <link rel="stylesheet" href="10_exercise_style.css">  
+        
+        <style>
+           /*  ANS 5     instead of styling here */ 
+        </style>
+
+    </head>
+    <body>
+        <!--
+            1) Create 3 buttons : 'Add to Cart' (rgb 255, 216,20), 'Request now' (black), 'Schedule for later' (rgb 230,230,230)
+                NOTE: classList has another method called contains() which checks if an element has a class.
+            2) Create a button 'Test' with class 'js-button'. Check if this button has the class 'js-button' using contains() and console the result
+            3) Create a button 'Gaming' which on clicked should turn ON /OFF [Hint : add or remove is-toggled class to change styling. Use if(classList.contains('is-toggled')) to decide whether to add or remove is-toggled class]
+            4) Create 2 buttons 'Music' , 'Tech' that can be turned ON/OFF
+            5) Use a fn to reuse the code and separate each language into its own file.
+
+            6) Modify qn 5 so that only 1 button can be ON at a time.
+            7) Create a new file and copy the code from 10_htmlCssJsTogether.html. In the Amazon shipping calculator, if we type a number less than 0, display a red error message below the textbox.
+            8) Styling the calculator project. Make a copy of exercise 09_calculator.html and design it as given. [Ans in calculator folder]
+        -->
+
+        <button class="cart">Add to Cart</button>   <!-- Ans 1-->
+        <p>
+            <button class="request">Request now</button>
+            <button class="schedule">Schedule for later</button>
+        </p>
+
+        <button class="js-button">Test</button> <!-- Ans 2-->
+
+        <p>Turn ON/OFF</p>  <!-- Ans 3 -->
+
+        <button class="game switch" onclick="
+            switching(this) // pass this fron onclick for switching() fn to know which button was clicked
+            /*
+
+            const game = document.querySelector('.game')
+            
+            if(game.classList.contains('is-toggled')){
+                game.classList.remove('is-toggled')
+            }else{
+                game.classList.add('is-toggled')
+            }
+
+            */
+
+        ">Gaming</button>
+
+        <button class="music switch" onclick="
+            switching(this)
+        ">Music</button>
+
+        <button class="tech switch" onclick="
+            switching(this)
+        ">Tech</button>
+
+        
+        <script src="10_exerciseScript.js"></script>
+
+    </body>
+
+</html>

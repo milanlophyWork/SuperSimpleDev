@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo List</title>
+    </head>    
+
+    <body>
+
+        <p>Todo List Practise 1</p>
+
+        <input type="text" placeholder="Todo name" class="js-todo">
+        <button onclick="
+            addTodo()
+        ">Add</button>
+
+        <p>Todo List Practice 2</p>
+
+        <input type="text" placeholder="Todo name" class="js-todo2"/>
+        <button onclick="
+            addTodo()
+        ">Add</button>
+
+        <p class="js-displayTodo"></p> <!-- we ca-->
+
+        <script>
+            const arrayList = []
+
+            
+
+            function addTodo(){ // practice 1
+                const doList = document.querySelector('.js-todo')
+                
+                arrayList.push(doList.value)
+                console.log(arrayList)
+
+                doList.value = '' 
+            }
+                /*
+
+            function addTodo(){
+                const doLists = document.querySelector('.js-todo2')
+
+                arrayList.push(doLists.value)
+
+                for(let i = 0; i< arrayList.length; i++){
+                    const doList = doLists[i]
+                    
+                    const html = `<p>${doList}</p>`
+                    document.querySelector('.js-displayTodo').innerHTML = html
+
+
+                }
+
+                doLists.value = ''
+
+                
+            }
+                */
+
+        </script>
+    </body>
+<html>

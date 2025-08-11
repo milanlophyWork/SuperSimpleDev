@@ -1,0 +1,29 @@
+body{
+    background: black;
+}
+.js-result{
+    height: 70px;
+    width: 100%;
+    font-size: 50px;
+    margin: 35px 0px 5px 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+button{
+    background: rgb(70, 67, 67);
+    color: white;
+    border: none;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    padding: 15px 20px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+.operator{
+    background: #f57f17;
+}
+.back, .clear{
+    padding: 0px;
+    font-size: 15px;
+}

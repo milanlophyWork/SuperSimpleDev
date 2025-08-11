@@ -1,0 +1,36 @@
+.cart{
+    background: rgb(255, 216, 20);
+    border: none;
+    color: black;
+    padding: 5px 40px;
+    border-radius: 50px;
+    font-size: 16px;
+}
+.request{
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+.schedule{
+    background: rgb(230, 230, 230);
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.switch{
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    
+}
+.is-toggled{
+    background: rgb(244,244,244);
+    color: black;
+}
