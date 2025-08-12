@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practising arrays and loops</title>
+    </head>
+    <body>
+        
+        <script>
+            function countWords(words){
+                let obj = {}
+
+
+                for(let i = 0; i< words.length; i++){
+                    const word = words[i]
+
+                    if(obj[word]){
+                        obj[word]++
+                    }else{
+                        obj[word] = 1
+                    }
+                }
+                console.log(obj)
+            }
+
+            countWords(['hi', 'hi','hello', 'hi'])
+        </script>
+    </body>
+</html>

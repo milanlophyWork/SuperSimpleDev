@@ -2,60 +2,144 @@
 <html>
     <head>
         <title>Todo List</title>
+
+        <style>
+            .js-delete{
+                background: red;
+                color: white;
+                border: none;
+                padding: 10px;
+            }
+        </style>
     </head>    
 
     <body>
 
-        <p>Todo List Practise 1</p>
+        <p>Todo List Practise 1</p>      
+        
+        <!--
 
         <input type="text" placeholder="Todo name" class="js-todo">
         <button onclick="
             addTodo()
         ">Add</button>
 
-        <p>Todo List Practice 2</p>
+        -->
 
-        <input type="text" placeholder="Todo name" class="js-todo2"/>
+        <p>Todo List Practise 2</p>
+
+        
+
+        <input type="text" placeholder="Todo name" class="js-todo">
+        <button onclick="addTodo()">Add</button>
+
+        <div class="js-displayTodo"></div> <!-- Can't use paragraph as we need a container for holding a group of lists. A paragraph can't hold another paragraph inside. div is also a block element as paragraph but div has no default styling. paragraph has margin by default.-->
+
+<!--
+        <p>Todo List</p>
+
+        <input type="text" placeholder="Todo name" class="js-todo">
+        <input type="date" value="mm/dd/yyyy" class="js-dueDate">
         <button onclick="
             addTodo()
         ">Add</button>
 
-        <p class="js-displayTodo"></p> <!-- we ca-->
+        <div class="js-displayTodo"></div>
+    -->
 
         <script>
-            const arrayList = []
 
-            
-
-            function addTodo(){ // practice 1
-                const doList = document.querySelector('.js-todo')
-                
-                arrayList.push(doList.value)
-                console.log(arrayList)
-
-                doList.value = '' 
-            }
-                /*
+            /*  // practise 1
+            const todo = []
 
             function addTodo(){
-                const doLists = document.querySelector('.js-todo2')
+                const inputElement = document.querySelector('.js-todo')
 
-                arrayList.push(doLists.value)
-
-                for(let i = 0; i< arrayList.length; i++){
-                    const doList = doLists[i]
-                    
-                    const html = `<p>${doList}</p>`
-                    document.querySelector('.js-displayTodo').innerHTML = html
-
-
-                }
-
-                doLists.value = ''
-
-                
+                todo.push(inputElement.value)
+                console.log(todo)
+                inputElement.value = ''
             }
-                */
+            */
+
+            // practise 2
+
+            
+            const todoList = []    // created an array to store the lists
+
+            rendertodo()
+
+            function rendertodo(){
+
+                let html = ''
+
+                for (let i =0; i< todoList.length; i++){
+                    const todo = todoList[i]   // each list stored to todo 
+                                                    // this technique is called generating the html.
+                    html += `<p>${todo}</p>`    // providing html (paragraph element) for each list
+                }
+                document.querySelector('.js-displayTodo').innerHTML = html // displaying html in div
+                // console.log(todoList)
+
+            }
+            
+            function addTodo(){
+                const inputElement = document.querySelector('.js-todo')
+
+                todoList.push(inputElement.value)
+
+                rendertodo()
+
+                inputElement.value = ''
+            }
+                
+                
+            // let todoList = []
+            // let date = ''
+            // displayTodo()
+
+            // function displayTodo(){
+            //     let html = ''
+
+            //     for(let i = 0; i< todoList.length; i++){
+            //         const todo = todoList[i]
+
+            //         html += `<p>${todo} ${date} <button class = "js-delete" onclick = "deleteTodo()" >Delete</button> </p>`
+                    
+            //     }
+            //     document.querySelector('.js-displayTodo').innerHTML = html
+            // }
+
+            // function addTodo(){
+            //     const inputElement = document.querySelector('.js-todo')
+
+            //     todoList.push(inputElement.value)
+
+            //     addDate()
+
+            //     inputElement.value = ''
+            // }
+            // function addDate(){
+            //     const dateElement = document.querySelector('.js-dueDate')
+            //     date = dateElement.value
+
+            //     displayTodo()
+            // }
+            // function deleteTodo(){
+            //     const deleted = document.querySelector('.js-delete')
+
+            //     todoList = []
+            //     date = ''
+
+            //     displayTodo()
+            // }
+
+            /* js steps followed usually
+
+            1) save the data
+            2) generate the html
+            3) make it interactive
+            
+            */
 
         </script>
     </body>
