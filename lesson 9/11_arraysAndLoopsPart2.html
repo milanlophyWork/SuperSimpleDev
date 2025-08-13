@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arrays and Loops part 2</title>
+
+        <style>
+            body{
+                font-family: Arial;
+            }
+            .displayTodo{
+                display: grid;
+                grid-template-columns: 200px 150px 100px;
+                margin-top: 20px;
+                grid-gap: 10px;
+            }
+            .enterTodo{
+                display: grid;
+                grid-template-columns: 200px 150px 100px;
+                grid-gap: 10px;
+            }
+            .todo, .date{
+                padding: 10px;
+            }
+            .add{
+                background: green;
+                border: none;
+                padding: 10px 20px;
+                color: white;
+            }
+            .delete{
+                background: rgb(116, 10, 10);
+                border: none;
+                padding: 12px 20px;
+                color: white;
+            }
+        </style>
+
+    </head>
+    <body>
+        <p>Todo List</p>
+
+        <div class="enterTodo">
+
+            <input type="text" placeholder="Todo name" class="js-todo todo">
+            <input type="date" class="js-date date"/>
+            <button class="add" onclick="addTodo()">Add</button>
+        </div>
+
+        <div class="js-displayTodo displayTodo"></div>
+
+        <script>
+
+            const todoList = []
+
+            function renderTodoList(){
+                let html = ''
+
+                for(let i = 0; i< todoList.length; i++){
+                    // const todoObj = todoList[i] // instead this, use below destructuring code so we can use ${name} and ${dueDate} in p tag instead of ${todoObj.name} and ${todoObj.dueDate}
+
+                    const { name,dueDate } = todoList[i]    // destructuring
+
+                    html += `
+                      
+                        <div>${name}</div>
+                        <div>${dueDate}</div>
+                        
+                        <button class="delete" onclick = "
+                            todoList.splice(${i}, 1)
+                            renderTodoList()
+                        ">Delete</button>
+               
+                        `
+                        // we put each element into a div for putting each element to each grid space (columns)
+                }
+                document.querySelector('.js-displayTodo').innerHTML = html
+            }
+
+            function addTodo(){
+
+                const inputElement = document.querySelector('.js-todo')
+                const dateElement = document.querySelector('.js-date')
+                
+                let name = inputElement.value
+                let dueDate = dateElement.value
+
+                todoList.push({
+                    // name : name,
+                    // dueDate: dueDate // shorthand property short cut
+                    name,
+                    dueDate
+                })
+                
+                renderTodoList()
+                
+                inputElement.value = '' // name = '' just clears out the local variables not the entered text. We should clear the input fields directly.
+                dateElement.value = ''  // dueDate = '' same as above
+            }
+        </script>
+
+    </body>
+</html>
+
+<!--  My Idea
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arrays and Loops Part 2</title>
+
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <p>Todo List</p>
+
+        <input type="text" placeholder="Todo name" class="js-todo todo">
+        <input type="date" class="js-date date">
+        <button class="add" onclick="addTodo()">Add</button>
+
+        <div class="js-displayTodo"></div>
+
+        <script>
+            const todoList = []
+            const todoDate = []
+
+            function renderTodoList(){
+                let html = ''
+                
+                
+                for(let i =0; i< todoList.length; i++){
+                    const todo = todoList[i]
+                    const dueDate = todoDate[i]
+
+                    html += `
+                        <p class= "display">
+                            ${todo} 
+
+                            ${dueDate}
+
+                            <button class="delete" onclick= "
+                                todoList.splice(${i},1)
+                                renderTodoList()
+                            ">Delete</button>
+                        </p>
+                        `
+                }
+           
+                document.querySelector('.js-displayTodo').innerHTML = html
+            }
+
+            function addTodo(){
+                const inputElement = document.querySelector('.js-todo')
+                const dateElement = document.querySelector('.js-date')
+              
+                todoList.push(inputElement.value)
+                todoDate.push(dateElement.value)
+
+                renderTodoList()
+                inputElement.value = ''
+                dateElement.value = ''
+            }
+
+        </script>
+    </body>
+</html> -->
