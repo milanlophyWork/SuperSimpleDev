@@ -6,11 +6,17 @@
     <body>
         Array is an another type of value . It represents a list of values. Syntax : [val1, val2, ...]. Arrays can be written on multiple lines. We can access array values using square brackets with position specified in it ie index.
 
+        <p>Arrays are references. ie variable stores reference only actual array is stored somewhere else in memory. </p>
+
         <p>Loops let us run some code over and over. In jS 2 types of loops. 1) While loop 2) For loop. Use for loop for standard loops (loops with loop variable, condition and increment step) and use while loop for non-standard loops</p>
             
         <p>Loops create a scope. Any variable created inside loop's curly braces are accessible only inside loop curly braces.</p>
         <script>
-            /*  // ARRAYS
+            
+            // ARRAYS
+
+            console.log('Arrays intro')
+            /* 
 
             const num = [
                 10,
@@ -24,10 +30,10 @@
             console.log(num) // changing a value in an array using square brackets
 
             const arr2 = [60, 'with different types', true, {name : 'Milan'}, [1,2,3], num]
-            console.log(typeof arr2)    // display object. Arrays are special type of objects.
+            console.log(typeof arr2)    // display object. ie Arrays are special type of objects.
 
-            // To check something specifically an array :
-            console.log(Array.isArray(arr2))
+            // To check something specifically an array or not :
+            console.log(Array.isArray(arr2)) // returns true
 
             //since arrays are objects, It can have properties (eg: .length) and methods (push(), splice()). 
             console.log(arr2.length)
@@ -40,7 +46,10 @@
             
             */
 
-            /*  //  LOOPS
+            //  LOOPS
+
+            console.log('Loops intro')
+            /*  
 
                 // while loop : runs the code while the given condition is true
 
@@ -68,7 +77,7 @@
             }
                 */
 
-                // Looping through an array
+                console.log('Looping through an array') 
 
                 /*
 
@@ -80,9 +89,11 @@
 
                */
 
+               console.log('Accumulator pattern')
+
             // calculate total of given array of numbers using ACCUMULATOR pattern
 
-                
+                /*
             const nums = [1,1,3]
             let sum = 0 // pattern step 1: create a variable to store the result
 
@@ -96,8 +107,11 @@
 
             console.log(sum)
 
+                */
+
             // create a copy of num array with each number doubled
 
+                /*
             let doubleArr1 = []
 
             for(let i = 0; i< nums.length; i++){
@@ -110,8 +124,145 @@
                 
             }
             console.log(doubleArr1)
+
+            */
+
+            console.log('Arrays are references')
+
+            /*
+
+            const array1 = [1,2,3]
+            const array2 = array1   // both array contains only references of where array is actually stored.
+
+            array2.push(4)  // hence on pushing value is entered to actual array where array2 is referencing. So on displaying both will be updated.
+            console.log(array1)
+            console.log(array2) // To avoid this we can create copy of values in array using a method cld slice()
+
+            const array3 = array1.slice()
+            array3.push(5)
+            console.log(array3)
+            console.log(array1)
+
+            */
+
+            console.log('Short cut : destructuring')
+            /*
+
+            const array1 = [1,2,3]
+
+            console.log(array1[0], array1[1])
+
+            // instead we can use destucturing
+
+            const [fstValue, scdValue] = [1,2,3]
+            console.log(fstValue, scdValue)
+            
+            */
+
+            console.log('More about loops')
+
+            // Loops have 2 features called break and continue. break lets us exit a loop early. continue lets us skip 1 iteration.
+
+            /*
+            for(let i = 1; i< 11; i++){
+               
+
+                if(i === 3){
+                    continue // when i = 3 skips rest of current iteration only and go to next value of i 
+                }
+
+                console.log(i)
+
+                if(i=== 6){ // when i = 6 stop the loop entirely
+                    break
+                }
+            }
+                */
+
+            console.log('Skips a number if divisible by 3')
+
+            /*
+
+            for(let i = 0; i< 11; i++){
+                if(i % 3 === 0){
+                    continue
+                }
+                console.log(i)
+            }
+                */
+
+            console.log('using while loop')
+
+            /*
+            let i = 1
+            while(i < 11){
+
+                if(i % 4 === 0){
+                    i++ // if not incremented here continue skips rest of code hence i not incremented and stays at 4 forever leading into infinte loop.
+                    continue
+                }
+
+                console.log(i)
+                i++
+            }
+
+            */
+
+            console.log('Loops with functions')
+            /*
+
+            function doubleArray(array){
+
+                let arrayDoubled = []
+
+                for(let i = 0; i< array.length; i++){
+                    const nums = array[i]
+                    arrayDoubled.push(nums * 2)
+                }
+                console.log(arrayDoubled)
+
+            }
+            doubleArray([1,1,3])
+            doubleArray([2, 2, 5]) // we can reuse this logic for any arrays on using loops with functions.
+
+            */
+
+            // we can also break out of the loop using return statement instead of console the output
+
+            function doubleArray(array){
+                let arrayDoubled = []
+
+                for(let i = 0; i< array.length; i++){
+                    const nums = array[i]
+
+                    if(nums === 0){ // stopping the loop early if number = 0
+                        return arrayDoubled // instead of break
+                    }
+
+                    arrayDoubled.push(nums * 2)
+
+                }
+                return arrayDoubled
+            }
+
+            console.log(doubleArray([1,1,7,0,2]))
+
+
         </script>
 
     </body>
 
 </html>
+
+<!--
+
+Summary :
+
+    Arrays => List of values
+    Loops(while loop , for loop)
+    Accumulator pattern
+    Created a Todo list project
+    Arrays are references, destructuring
+    break, continue , loops inside a function
+    
+-->

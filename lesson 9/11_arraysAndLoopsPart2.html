@@ -7,31 +7,36 @@
             body{
                 font-family: Arial;
             }
-            .displayTodo{
+            .displayTodo,.enterTodo {
                 display: grid;
                 grid-template-columns: 200px 150px 100px;
-                margin-top: 20px;
                 grid-gap: 10px;
+                align-items: center;
             }
             .enterTodo{
-                display: grid;
-                grid-template-columns: 200px 150px 100px;
-                grid-gap: 10px;
+                margin-bottom: 20px;
+                align-items: stretch;
             }
             .todo, .date{
-                padding: 10px;
+                font-size: 15px;
+                padding: 6px;
             }
             .add{
                 background: green;
                 border: none;
-                padding: 10px 20px;
+                /* padding: 10px 20px; */  /*instead use stretch in the enterTodo , by default align items is stretch. on changing to center it changes so make it stertch in enterTodo */
+                
+                font-size: 15px;
                 color: white;
+                cursor: pointer;
             }
             .delete{
-                background: rgb(116, 10, 10);
+                background: darkred;
                 border: none;
-                padding: 12px 20px;
+                padding: 10px 0px ;
                 color: white;
+                font-size: 15px;
+                cursor: pointer;
             }
         </style>
 

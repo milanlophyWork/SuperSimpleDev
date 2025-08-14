@@ -7,15 +7,15 @@ function renderTodoList(){
         const {name, dueDate} = todoList[i]
 
         html += `
-            <p>
-                ${name}
-                ${dueDate}
+            
+            <div>${name}</div>
+            <div>${dueDate}</div>
 
-                <button onclick = "
-                    todoList.splice(${i}, 1)
-                    renderTodoList()
-                ">Delete</button>
-            </p>
+            <button class= "delete" onclick = "
+                todoList.splice(${i}, 1)
+                renderTodoList()
+            ">Delete</button>
+            
         `
     }
     document.querySelector('.js-displayTodo').innerHTML = html
