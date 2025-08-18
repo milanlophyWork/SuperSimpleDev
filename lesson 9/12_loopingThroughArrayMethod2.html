@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 12 : Looping through Array Method 2</title>
+    </head>
+    <body>
+        We loop through an array using for loop or a while loop. Another way is by using the method forEach() which is the preferred way to loop through an array. Because this is easier to read than a for loop and while loop.
+        <p>forEach() has a feature : the function can have 2 parameters , value and index (gives position of value in the array)</p>
+        <script>
+            [
+                'make dinner',
+                'wash dishes',
+                'watch youTube'
+            ].forEach(function(value, index){
+                console.log(index , value)
+            })  // forEach fn loop through the array and store each value of array in value parameter and run the function
+
+
+        </script>
+    </body>
+</html>

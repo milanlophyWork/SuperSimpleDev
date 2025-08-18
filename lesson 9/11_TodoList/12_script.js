@@ -1,23 +1,23 @@
-const todoList = []
+let todoList = []
 
 function renderTodoList(){
     let html = ''
 
-    for(let i = 0; i< todoList.length; i++){
+    for(let i = 0; i<todoList.length ; i++){
         const {name, dueDate} = todoList[i]
 
         html += `
-            
-            <div>${name}</div>
-            <div>${dueDate}</div>
-
-            <button class= "delete" onclick = "
+        
+            <div>${name} </div>
+            <div>${dueDate} </div>
+            <button class = "delete" onclick = "
                 todoList.splice(${i}, 1)
                 renderTodoList()
             ">Delete</button>
             
         `
     }
+
     document.querySelector('.js-displayTodo').innerHTML = html
 }
 
@@ -29,20 +29,12 @@ function addTodo(){
     const dueDate = dateElement.value
 
     todoList.push({
-        name ,
+        name,
         dueDate
     })
-
+    
     renderTodoList()
 
     inputElement.value = ''
     dateElement.value = ''
 }
-
- /* js steps followed usually
-
-    1) save the data
-    2) generate the html
-    3) make it interactive
-
-*/

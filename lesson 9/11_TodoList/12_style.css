@@ -1,0 +1,33 @@
+body{
+    font-family: Arial;
+}
+.displayTodo, .enterTodo{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.enterTodo{
+    margin-bottom: 20px;
+    align-items: stretch;
+}
+.todo, .date{
+    font-size: 15px;
+    padding: 6px;
+}
+.add{
+    background: green;
+    border: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+.delete{
+    background: darkred;
+    border: none;
+    padding: 10px 0px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}

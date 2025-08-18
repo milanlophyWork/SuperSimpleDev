@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced Functions</title>
+    </head>
+    <body>
+        setTimeout() is a built-in-function that allows us to run a function in the future. It takes 2 parameters : <p></p>
+        
+        * fn we want to run in the future <p></p> * timer in millisecond (1000 ms = 1 sec)
+
+        <p>Asynchronous code : Computer won't wait for a line to finish before going to next line. Doesn't block program running</p>
+        <p>Synchronous code : Code runs line by line. Computer waits for one line to complete. It blocks the code until one line is finished</p>
+
+        <p>setInterval() is also a built-in-function. It also takes the same 2 parameters as setTimeout()</p>
+
+        <script>
+
+            /*  // Fn intro
+
+            // fn declaration : method 1 // Easier to read , Enable hoisting (ie allow accessing before declaration)
+
+            function greeting(){
+                console.log('hello')
+            }
+            greeting()  // calling the function
+
+            // Functions are values. Values can be saved in a variable. Likewise, functions can also be saved inside a variable as given below.
+
+            // method 2
+            const result = function sum(a,b){
+                console.log(a + b)
+            }
+
+            result(3,4)
+            console.log(typeof result)
+
+            // Anonymous function (Function without name)
+
+
+            // method 3
+            // we don't need fnName in above case (on storing inside variable) as we can call it using the variable name. So avoid fnName => Anonymous fn
+            
+            const total = function(a , b){
+                console.log(a + b)
+            }
+            total(2,8)
+
+            // values can be saved inside an object. Same is possible for functions too.
+            // method 4
+
+
+            const obj = {
+                num : 2,
+                fn : function display(num){ // called method (fn saved inside an object)
+                    console.log(num)
+                }
+            }
+            obj.fn(obj.num)
+            obj.fn(5)
+
+            const obj2 = {
+                num : 3,
+                fn : function(){    // Here also fn can be called using property name . So use anonymous functions
+                    console.log('Using anonymous fn')
+                }
+            }
+            obj2.fn()
+
+            // values can be passed into a function. Same is possible for functions too.
+            // method 5
+
+            function passingFn(fn){
+                fn()
+            }
+
+            passingFn(function (){
+                console.log('Function passed as parameter(callbacck)')
+            }) // fn passed into another fn is called a callback fn
+
+            */
+
+            //  Asynchronous code(unorderly executed) -> setTimeout() and setInterval()     // setTimeout() - a built in fn that allows us to run a function in the future. It takes 2 parameters
+
+            setTimeout(function(){
+                console.log('timeout')
+                console.log('timeout2') // Eventhough setTimeout is asynchronous, code inside setTimeout is synchronous. timeout first then timeout2 (line by line)
+
+            },2000) // fn waits for 2 seconds 
+
+            console.log('nextLine') // setTimeout is an asynchronous code. Computer won't wait for a line to finish before going to the next line. unorderly executed
+
+            // synchronous -> computer will wait for one line to finish before going to next line. Orderly executed (line by line)
+            
+            // setInterval() - another built-in-fn that takes same 2 parameters as above. It will keep running a fn in the future (non-stop running)
+
+            setInterval(function() { // setInterval() is also an asynchronous code
+                console.log('interval')
+            },2000) // runs this after every 2 sec
+
+            console.log('nextLine2') // runned first then setTimeout and setInterval
+
+            
+        </script>
+    </body>
+</html>
