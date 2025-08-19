@@ -3,20 +3,20 @@ let todoList = []
 function renderTodoList(){
     let html = ''
 
-    for(let i = 0; i<todoList.length ; i++){
-        const {name, dueDate} = todoList[i]
+    todoList.forEach((value, index) => {
+        const {name, dueDate} = value
 
         html += `
         
-            <div>${name} </div>
-            <div>${dueDate} </div>
-            <button class = "delete" onclick = "
-                todoList.splice(${i}, 1)
+            <div>${name}</div>
+            <div>${dueDate}</div>
+            <button class = "delete" onclick= "
+                todoList.splice(${index}, 1)
                 renderTodoList()
             ">Delete</button>
-            
+
         `
-    }
+    })
 
     document.querySelector('.js-displayTodo').innerHTML = html
 }

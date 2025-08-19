@@ -58,10 +58,10 @@ function reset(){
 let isAutoPlaying = false
 let interval_id 
 
-function autoPlay(){
+function autoPlay(){    // here for autoPlay, regular fn is recommended as it is easier to read and enables hoisting so no need to worry the order of function
     
     if(!isAutoPlaying){
-        interval_id = setInterval(function() {
+        interval_id = setInterval(() => {   // passing fn to another fn so use arrow fn
             let playerMove = pickComputerMove()
 
             playGame(playerMove)

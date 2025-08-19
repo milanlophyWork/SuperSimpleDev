@@ -1,21 +1,83 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lesson 12 : Looping through Array Method 2</title>
+        <title>Lesson 12 :Advanced fns, Looping through Array Method 2</title>
     </head>
     <body>
-        We loop through an array using for loop or a while loop. Another way is by using the method forEach() which is the preferred way to loop through an array. Because this is easier to read than a for loop and while loop.
+        <p>forEach() method :</p>We loop through an array using for loop or a while loop. Another way is by using the method forEach() which is the preferred way to loop through an array. Because this is easier to read than a for loop and while loop.
         <p>forEach() has a feature : the function can have 2 parameters , value and index (gives position of value in the array)</p>
+
+        <p>Arrow Functions : Shorter way to write functions</p>
         <script>
+
+        // forEach() method
+            /*
+
             [
                 'make dinner',
                 'wash dishes',
                 'watch youTube'
             ].forEach(function(value, index){
                 console.log(index , value)
-            })  // forEach fn loop through the array and store each value of array in value parameter and run the function
+            });  // forEach fn loop through the array and store each value of array in value parameter and run the function
 
+            // Loops have a feature called continue. Continue lets us skip to the next iteration. forEach methods don't have continue, but we can do the same thing using return statement.
 
+            [
+                'good morning',
+                'good after noon',
+                'good night'
+            ].forEach(function(value, index){
+
+                if(value === 'good night'){
+                    return
+                }
+                console.log(index,value)
+            })
+
+            // break let us exit a loop early. It is not easy to use break in a forEach , so use regular for loops in such cases
+            
+            */
+
+        // Arrow Functions & regular fn similarities
+
+            const regularFn = function(param){
+                console.log('regular function : hello ',param)
+                return 5
+            }
+            regularFn('all') // on consoling get 5 displayed
+
+            const arrowFn = (param) => {
+                console.log('arrow function : hello ',param)
+                return 5
+            }
+            arrowFn('all')  // on consoling get 5 displayed
+
+        // Differences : Arrow fns have short cuts that regular fns do not have
+
+            const oneParam = param => {
+                console.log(param + 1)
+            }
+
+            oneParam(2) // if only one parameter brackets are not necessary
+
+            const oneLine = () => console.log(3+2) // if only one line avoid braces 
+            oneLine()
+
+            const oneLineReturn = () => 3+3
+            console.log(oneLineReturn()); // if only one line which is a return statement, avoid braces and return keyword
+
+        // forEach method using arrow fns // It is recommended to use arrow fns in cases like passing a fn within another fn.
+
+            [
+                'wash dishes',
+                'watch Youtube',
+                'make dinner'
+            ].forEach((value, index)=> {
+                console.log(index , value)
+            }) // here we pass a fn inside forEach fn
+
+        //     
         </script>
     </body>
 </html>

@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Practising setInterval</title>
+        <title>Rock Paper Scissors</title>
     </head>
     <body>
         <p>Rock Paper Scissors</p>
 
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
+        <button onclick="playGame('rock')">Rock</button>
+        <button onclick="playGame('paper')">Paper</button>
+        <button onclick="playGame('scissors')">Scissors</button>
 
         <p class="js-result"></p>
         <p class="js-moves"></p>
 
         <p class="js-score"></p>
 
-        <button>Reset</button>
-        <button>AutoPlay</button>
+        <button onclick="resetGame()">Reset</button>
+        <button class="js-auto" onclick="autoPlay()">Auto Play</button>
 
         <script>
+            let score = JSON.parse(localStorage.getItem('score')) || {
+                wins : 0,
+                lose : 0,
+                ties : 0
+
+            }
+            updateScore()
 
             function pickComputerMove(){
                 let computerMove = ''
@@ -33,6 +40,7 @@
                 }
 
                 return computerMove
+
             }
 
             function playGame(playerMove){
@@ -40,19 +48,54 @@
                 const computerMove = pickComputerMove()
 
                 if(playerMove === computerMove){
-                    result = 'Tie.'
+                    result = "Tie."
+                    score.ties++
                 }else if((playerMove === 'rock' && computerMove === 'paper') || (playerMove === 'paper' && computerMove === 'scissors') || (playerMove === 'scissors' && computerMove === 'rock')){
-                    result = 'You lose'
+                    result = 'You lose.'
+                    score.lose++
                 }else{
                     result = 'You win.'
+                    score.wins++
                 }
 
                 document.querySelector('.js-result').innerHTML = result
-                document.querySelector('.js-moves').innnerHTML = `You ${playerMove} - ${computert}`
-                localStorage.getItem('score', JSON.stringify(score))
+                document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`
+                updateScore()
 
+                localStorage.setItem('score', JSON.stringify(score))
             }
 
+            let isAutoPlaying = false
+            let interval_id
+
+            function autoPlay(){
+                if(!isAutoPlaying){
+                    interval_id = setInterval(()=> {
+                        const playerMove = pickComputerMove()
+                        playGame(playerMove)
+                        isAutoPlaying = true
+                        document.querySelector('.js-auto').innerHTML = 'Stop Play'
+                    },1000)
+
+                }else{
+                    clearInterval(interval_id)
+                    isAutoPlaying = false
+                    document.querySelector('.js-auto').innerHTML = 'Auto Play'
+                }
+            }
+
+            function updateScore(){
+                document.querySelector('.js-score').innerHTML = `Wins : ${score.wins}, Losses : ${score.lose}, Ties : ${score.ties}`
+            }
+
+            function resetGame(){
+                score.wins = 0
+                score.lose = 0
+                score.ties = 0
+
+                updateScore()
+                localStorage.removeItem('score')
+            }
         </script>
     </body>
 </html>
