@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>addEventListener</title>
+    </head>
+    <body>
+        <p>addEventListener</p>
+
+        Every html element has a method called addEventListener(). It lets us run some code when we interact with the element. addEventListener() has 2 parameters : <p></p>
+
+        1. event => What type of interaction we want the element to be listened for<p></p>
+        2. function => To be runned when event occurs<p></p>
+
+        Advantages of addEventListener() over attributes.<p></p>
+
+        * It lets us add multiple event listeners for an event<p></p>
+        * we can remove an event listener using a method called removeEventListener(event, fn we want to remove)<p></p>
+
+        In conclusion, addEventListeners gives us more control over eventListeners. Hence It is better to use eventListeners instead of attributes like onclick.<p></p>
+
+        <button class="js-btn">Click</button>
+
+        <script>
+
+            // word after on in attribute is the event. Eg: onclick - attribute and click - event
+
+            const btnElement = document.querySelector('.js-btn')
+
+            btnElement.addEventListener('click', ()=> console.log('click')) // use arrow fn as we are passing a fn to another fn.
+            btnElement.addEventListener('click', ()=> console.log('click2')) // multiple eventListeners for event 'click'
+
+            const btn2 = document.createElement('button')
+            btn2.innerText = 'btn2'
+            document.body.appendChild(btn2)
+
+            btn2.addEventListener('click', ()=> console.log('btn2')) // removing an eventListener using removeEventListener on btn2
+
+            const eventListener = ()=> { // to remove we need to save eventListener in a variable first.
+                console.log('removed Listener')
+            }
+
+            btn2.addEventListener('click', eventListener)
+            btn2.removeEventListener('click', eventListener)
+
+        </script>
+    </body>
+</html>

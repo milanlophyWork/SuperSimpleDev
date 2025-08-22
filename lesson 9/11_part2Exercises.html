@@ -96,7 +96,7 @@
 
             */
 
-            /*    // Ans 5
+            /*   // Ans 5
 
             function removeEgg(foods){
                 const noEgg = []
@@ -105,13 +105,9 @@
                 for(let i = 0; i< foods.length; i++){
                     const food = foods[i]
 
-                    if(food === 'egg'){
+                    if(food === 'egg' && eggCount < 2){
                         eggCount++
-
-                        if(eggCount <= 2){
-                            continue
-                        }
-                        noEgg.push(food)
+                        continue
                     }else{
                         noEgg.push(food)
                     }
@@ -131,15 +127,10 @@
                 for(let i = 0; i< foods.length; i++){
                     const food = foods[i]
 
-                    if(food === 'egg'){
+                    if(food === 'egg' && eggCount < 2){
                         eggCount++
-
-                        if(eggCount <= 2){
-                            continue
-                        }else{
-                            noEgg.push(food)
-                        }
-                   }else{
+                        continue
+                    }else{
                         noEgg.push(food)
                    }
                 }

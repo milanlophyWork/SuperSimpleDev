@@ -1,100 +1,62 @@
-<!DOCTYPE html>
+<!DOCTYPE thml>
 <html>
     <head>
-        <title>Rock Paper Scissors</title>
+        <title>Todo List</title>
     </head>
     <body>
-        <p>Rock Paper Scissors</p>
+        <p>Todo List</p>
 
-        <button onclick="playGame('rock')">Rock</button>
-        <button onclick="playGame('paper')">Paper</button>
-        <button onclick="playGame('scissors')">Scissors</button>
+        <input type="text" placeholder="Todo name" class="js-todo">
+        <input type="date" class="js-date">
+        <button class="js-add">Add</button>
 
-        <p class="js-result"></p>
-        <p class="js-moves"></p>
-
-        <p class="js-score"></p>
-
-        <button onclick="resetGame()">Reset</button>
-        <button class="js-auto" onclick="autoPlay()">Auto Play</button>
+        <div class="js-displayTodo"></div>
 
         <script>
-            let score = JSON.parse(localStorage.getItem('score')) || {
-                wins : 0,
-                lose : 0,
-                ties : 0
+            let todoList = []
 
-            }
-            updateScore()
+            function renderTodoList(){
+                let html = ''
 
-            function pickComputerMove(){
-                let computerMove = ''
-                const value = Math.random()
+                todoList.forEach((value)=> {
+                    const {name, dueDate} = value
 
-                if(value >= 0 && value < 1/3){
-                    computerMove = 'rock'
-                }else if(value >= 1/3 && value < 2/3){
-                    computerMove = 'paper'
-                }else{
-                    computerMove = 'scissors'
-                }
+                    html += `
+                        <div>${name}</div>
+                        <div>${dueDate}</div>
+                        <button class = "js-delete">Delete</button>
+                    `
 
-                return computerMove
+                })
+                document.querySelector('.js-displayTodo').innerHTML = html
 
-            }
-
-            function playGame(playerMove){
-                let result = ''
-                const computerMove = pickComputerMove()
-
-                if(playerMove === computerMove){
-                    result = "Tie."
-                    score.ties++
-                }else if((playerMove === 'rock' && computerMove === 'paper') || (playerMove === 'paper' && computerMove === 'scissors') || (playerMove === 'scissors' && computerMove === 'rock')){
-                    result = 'You lose.'
-                    score.lose++
-                }else{
-                    result = 'You win.'
-                    score.wins++
-                }
-
-                document.querySelector('.js-result').innerHTML = result
-                document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`
-                updateScore()
-
-                localStorage.setItem('score', JSON.stringify(score))
+                document.querySelectorAll('.js-delete')
+                    .forEach((deleteBtn)=> {
+                        deleteBtn.addEventListener('click',(index)=> {
+                            todoList.splice(index,1)
+                            renderTodoList()
+                        })
+                    }) 
             }
 
-            let isAutoPlaying = false
-            let interval_id
+            document.querySelector('.js-add').addEventListener('click', ()=> addTodo())
 
-            function autoPlay(){
-                if(!isAutoPlaying){
-                    interval_id = setInterval(()=> {
-                        const playerMove = pickComputerMove()
-                        playGame(playerMove)
-                        isAutoPlaying = true
-                        document.querySelector('.js-auto').innerHTML = 'Stop Play'
-                    },1000)
+            function addTodo(){
+                const inputElement = document.querySelector('.js-todo')
+                const dateElement = document.querySelector('.js-date')
 
-                }else{
-                    clearInterval(interval_id)
-                    isAutoPlaying = false
-                    document.querySelector('.js-auto').innerHTML = 'Auto Play'
-                }
-            }
+                const name = inputElement.value
+                const dueDate = dateElement.value
 
-            function updateScore(){
-                document.querySelector('.js-score').innerHTML = `Wins : ${score.wins}, Losses : ${score.lose}, Ties : ${score.ties}`
-            }
+                todoList.push({
+                    name,
+                    dueDate
+                })
 
-            function resetGame(){
-                score.wins = 0
-                score.lose = 0
-                score.ties = 0
+                renderTodoList()
 
-                updateScore()
-                localStorage.removeItem('score')
+                inputElement.value = ''
+                dateElement.value = ''
             }
         </script>
     </body>
