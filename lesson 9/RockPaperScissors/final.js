@@ -102,7 +102,19 @@ function updateScore(){
 }
 
 function resetGame(){
+<<<<<<< HEAD
 
+=======
+
+    score.wins = 0
+    score.lose = 0
+    score.ties = 0
+
+    updateScore()
+    localStorage.removeItem('score')
+
+
+>>>>>>> 592ad80 (Amazon Project html_css)
     document.querySelector('.js-confirm').innerHTML = `
         Are you sure you want to reset the score? 
         <button class= "js-yes yes">Yes</button>
@@ -126,4 +138,8 @@ function resetGame(){
 
 function hideMsg(cls){
     document.querySelector(`.js-${cls}`).innerHTML = ''
+<<<<<<< HEAD
+=======
+
+>>>>>>> 592ad80 (Amazon Project html_css)
 }
