@@ -1,63 +1,29 @@
-<!DOCTYPE thml>
-<html>
-    <head>
-        <title>Todo List</title>
-    </head>
-    <body>
-        <p>Todo List</p>
+<!--
 
-        <input type="text" placeholder="Todo name" class="js-todo">
-        <input type="date" class="js-date">
-        <button class="js-add">Add</button>
+Git lets us track changes in our code
 
-        <div class="js-displayTodo"></div>
+set up git: 
 
-        <script>
-            let todoList = []
+step 1 - Creating a repository :
 
-            function renderTodoList(){
-                let html = ''
+git symbol in vs-code -> initialize repository 
 
-                todoList.forEach((value)=> {
-                    const {name, dueDate} = value
+step 2 - Configure a username and email with Git :
 
-                    html += `
-                        <div>${name}</div>
-                        <div>${dueDate}</div>
-                        <button class = "js-delete">Delete</button>
-                    `
+terminal -> new terminal -> git config user.name ""  and git config user.email "lophymilan@gmail.com"
 
-                })
-                document.querySelector('.js-displayTodo').innerHTML = html
+step 3 - Save these changes into Git [so Git will start tracking any new changes that we make]
 
-                document.querySelectorAll('.js-delete')
-                    .forEach((deleteBtn)=> {
-                        deleteBtn.addEventListener('click',(index)=> {
-                            todoList.splice(index,1)
-                            renderTodoList()
-                        })
-                    }) 
-            }
+git symbol in vs-code -> type a msg telling what we change -> commit
 
-            document.querySelector('.js-add').addEventListener('click', ()=> addTodo())
+NOTE : A repository is a folder where changes are being tracked.
 
-            function addTodo(){
-                const inputElement = document.querySelector('.js-todo')
-                const dateElement = document.querySelector('.js-date')
+or 
+step 1 :
 
-                const name = inputElement.value
-                const dueDate = dateElement.value
+In vscode -> terminal -> new terminal -> git init 
 
-                todoList.push({
-                    name,
-                    dueDate
-                })
+step 2 :
 
-                renderTodoList()
 
-                inputElement.value = ''
-                dateElement.value = ''
-            }
-        </script>
-    </body>
-</html>
+-->
