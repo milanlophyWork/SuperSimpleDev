@@ -6,7 +6,7 @@
         <!-- This code is needed for responsive design to work.
          (Responsive design = make the website look good on 
           smaller screen sizes like a phone or a tablet). -->
-        <meta name="viewport" content="width= device - width, initial-scale = 1">
+        <meta name="viewport" content="width= device-width, initial-scale = 1">
 
         <!-- Loading font called Roboto from Google Fonts. -->
          <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,10 +60,11 @@
         </div>
 
         <div class="main">
-            <div class="products-grid">
+            <div class="products-grid js-products-grid">
                
                     
-                <div class="product-container">
+                <!-- Instead of adding products like this we use JS
+                  <div class="product-container">
                     <div class="product-image-container">
                         <img src="img/products/athletic-cotton-socks-6-pairs.jpg" class="product-image">
                     </div>
@@ -109,101 +110,8 @@
                         Add to Cart
                     </button>
 
-                </div>
+                </div> -->
 
-                <div class="product-container">
-                    <div class="product-image-container">
-                        <img src="img/products/intermediate-composite-basketball.jpg" class="product-image">
-                    </div>
-
-                    <div class="product-name limit-text-to-2-lines">
-                        Intermediate Size Basketball
-                    </div>
-
-                    <div class="product-rating-container">
-                        <img src="img/ratings/rating-40.png" class="product-rating-stars">
-                        <div class="product-rating-count link-primary">
-                            127
-                        </div>
-                    </div>
-
-                    <div class="product-price">
-                        $20.95
-                    </div>
-
-                    <div class="product-quantity-container">
-                        <select>
-                            <option value="1" selected>1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-
-                    <div class="product-spacer"></div>
-
-                    <div class="added-to-cart">
-                        <img src="img/icons/checkmark.png" alt="">
-                        Added
-                    </div>
-
-                    <button class="add-to-cart-button button-primary">
-                        Add to Cart
-                    </button>
-                </div>
-
-                <div class="product-container">
-                    <div class="product-image-container">
-                        <img src="img/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" alt="" class="product-image">
-                    </div>
-
-                    <div class="product-name limit-text-to-2-lines">
-                        Adults Plain Cotton T-shirt - 2 Pack
-                    </div>
-
-                    <div class="product-rating-container">
-                        <img src="img/ratings/rating-45.png" class="product-rating-stars">
-                        <div class="product-rating-count link-primary">
-                            56
-                        </div>
-                    </div>
-
-                    <div class="product-price">
-                        $7.99
-                    </div>
-
-                    <div class="product-quantity-container">
-                        <select>
-                            <option value="1" selected>1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-
-                    <div class="product-spacer"></div>
-
-                    <div class="added-to-cart">
-                        <img src="img/icons/checkmark.png">
-                        Added
-                    </div>
-
-                    <button class="add-to-cart-button button-primary">
-                        Add to Cart
-                    </button>
-                </div>
 
                 <script src="scripts/amazon.js"></script>
 
