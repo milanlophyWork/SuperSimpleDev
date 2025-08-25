@@ -63,7 +63,7 @@
             <div class="products-grid js-products-grid">
                
                     
-                <!-- Instead of adding products like this we use JS
+                <!-- Instead of adding products like this we use JS check product.js in data folder
                   <div class="product-container">
                     <div class="product-image-container">
                         <img src="img/products/athletic-cotton-socks-6-pairs.jpg" class="product-image">
@@ -112,9 +112,10 @@
 
                 </div> -->
 
+                <script src="data/product.js"></script> <!-- This JS file create all products -->
+                <script src="scripts/amazon.js"></script> <!-- This JS file loops through the products and create the html -->
 
-                <script src="scripts/amazon.js"></script>
-
+                <!--script elements are loaded one by one. Order matters. First products are created then used. If order is reversed code doesn't work. -->
             </div>
         </div>
     </body>

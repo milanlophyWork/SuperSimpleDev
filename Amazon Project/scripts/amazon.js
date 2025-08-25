@@ -1,13 +1,14 @@
-console.log('hello')
 
-// Adding more products, JS steps : 1) Save the data 2) Generate the html 3) Make it interactive
+// Adding more products:
+
+//  JS steps : 1) Save the data 2) Generate the html 3) Make it interactive
 
 // data means information. In this case data is information about our products. we are creating something in JS that closely matches the data on the page
 
 /* create a variable to save the data. Our data is a list of products so we save it in an array. Because array matches a list.
    Each product in the list has many values like img, name, price, rating, etc. So we use an object to represent each object. Because object group multiple values together. */
 
-const products = [{ // This is called a data structure. Because it structures or organizes the data.
+/*   const products = [{ // This is called a data structure. Because it structures or organizes the data.
     img : 'img/products/athletic-cotton-socks-6-pairs.jpg',
     name : 'Black and Gray Atheletic Cotton Socks - 6 Pairs',
     rating : {
@@ -16,27 +17,8 @@ const products = [{ // This is called a data structure. Because it structures or
     },
     priceCents : 1090
 
-},
-{
-    img : 'img/products/intermediate-composite-basketball.jpg',
-    name : 'Intermediate Size Basketball',
-    rating : {
-        stars : 4,
-        count : 127
-    },
-    priceCents : 2095
-},
-{
-    img : 'img/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-    name : 'Adults Plain Cotton T-Shirt - 2 Pack',
-    rating : {
-        stars : 4.5,
-        count : 56
-    },
-    priceCents : 799
-},
-
-] 
+}
+]  instead of writing here we made a separate script for products in data folder and add it to amazon.html */
 
 // next step is to use this data to generate the html. To generate the html we loop this array.
 
