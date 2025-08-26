@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modules Intro</title>
+    </head>
+
+    <body>
+        <p>**Modules**</p>
+
+        Modules are better way to organize our code. 
+
+        <p>3 script tag together in a file is similar to combining all the files together into 1 big file and running the code.Using script tag like this cause naming conflicts.</p>
+        <p> For eg : we used cart variable in cart.js, so we can't use 'cart' in any other files. Modules solve this problem.</p>
+
+        *Steps for creating a module :
+
+        <p>1. Create a file</p>
+        <p>2. Don't load the file with script tag.</p>
+        By doing this any variables we create inside the file, will be contained inside the file. So it won't cause any naming conflicts.
+
+        <p>*To get a variable out a file : </p>
+
+        1. Add type= "module" attribute
+        <p>2. Export</p> 
+        3. Import
+
+        <p> NOTE : put all imports at the top of the file. We need to use live server for modules to work [ie, if opened by double clicking the html file it won't work].</p>
+
+        *Benefits of module : 
+
+        <p>1. Helps us to avoid naming conflicts</p>
+        2. It allows us to import a variable in a different product-name
+        <p>3. Don't have to worry about the order of files.</p>
+    </body>
+</html>
