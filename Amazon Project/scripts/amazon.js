@@ -94,28 +94,31 @@ document.querySelectorAll('.js-add-to-cart') // after putting the html only we c
 
             let matchingItem
 
-            cart.forEach((item)=> {
+            cart.forEach((item)=> { // Making cart interactive : 1)  Check if the product is already in the cart. 
                 if(productId === item.productId){
                     matchingItem = item
                 }
             })
                 
             if(matchingItem){
-                matchingItem.quantity++
+                matchingItem.quantity++ //2) If it is in the cart, increase the quantity 
             }else{
-                cart.push({
+                cart.push({ // 3) If not in the cart add it to cart
                     productId : productId, // we can't use productName because different products of different brands can have same name. So we use id.
                     quantity : 1
                 })
             }
-            
-            console.log(cart)
 
+            let cartQuantity = 0
+
+            cart.forEach((item)=> {
+                cartQuantity += item.quantity
+            })
+
+            document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
         })  // on clicking we want to add the product to cart. Cart is basically a list with product we wanna buy and the quantity we want. So create an array to save cart list in a separate file to keep our code organized. Each file focus on a particular thing. Check cart.js 
     
     })  // Data attribute is just another html attribute. It let us know which product to be added on clicking the button. It allow us to attach any information to an html element. Here product name is attached to cart button using data attribute. Syntax => data-AttributeName = "attribute value"  
     // data attribute name should start with 'data-' => 'kebab-case'. dataset property gives us all data attributes attached to the button
 
-
-    // steps : 1) Check if the product is already in the cart. 2) If it is in the cart, increase the quantity 3) If not in the cart add it to cart
-    
+    // calculating total quantity in cart : 1) calculate the quantity 2) Put the quantity on the page
