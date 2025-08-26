@@ -46,7 +46,7 @@ products.forEach((product)=> { // step 2
 
             <div class = "product-spacer"></div>
 
-            <div class= "added-to-cart">
+            <div class= "added-to-cart js-added-to-cart-${product.id}">
                 <img src="img/icons/checkmark.png" >
                 Added
             </div>
@@ -64,14 +64,16 @@ products.forEach((product)=> { // step 2
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML
 
+let timeout_id // should be outside . Else fresh timout_id created on each click
 
 document.querySelectorAll('.js-add-to-cart') 
     .forEach((button)=> { 
         button.addEventListener('click', ()=> { 
-            const productId = button.dataset.productId
+            const {productId} = button.dataset // Ans 4 // destructuring short cut
 
             let matchingItem
-            let quantitySelected = Number(document.querySelector(`.js-quantity-selector-${productId}`).value)
+            const quantitySelected = Number(document.querySelector(`.js-quantity-selector-${productId}`).value) // Ans 1
+            const added = document.querySelector(`.js-added-to-cart-${productId}`)
 
             cart.forEach((item)=> {  
                 if(productId === item.productId){
@@ -83,10 +85,21 @@ document.querySelectorAll('.js-add-to-cart')
                 matchingItem.quantity += quantitySelected 
             }else{
                 cart.push({ 
-                    productId : productId, 
+                    productId , // Ans 4 //  short hand property
                     quantity : quantitySelected
                 })
             }
+
+            // Ans 5 // displaying 'Added' message
+            added.classList.add('display')
+
+
+            clearTimeout(timeout_id)
+
+            // Ans 6
+            timeout_id = setTimeout(()=> {
+                added.classList.remove('display')
+            },2000)
 
             let cartQuantity = 0
 

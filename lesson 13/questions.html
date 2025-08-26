@@ -12,6 +12,16 @@
                       - on clicking "Add to Cart" button, use DOM to get the quantity selector for the product. 
                       - Get the value selected in the quantity selector using property '.value'. [this value will be a string. so should convert to number first]
                       - When updating cart instead of using a quantity of 1 every time, use the quantity selected. Use the method Number() to convert the value to a number.
-        2. Commit the changes to git              
+        2. Commit the changes to git
+        3. Add some more products to the page.
+        4. use destructuring shortcut and simplify the code : const productId = button.dataset.productid. Use short hand property and simplify the code cart.push({...})      
+        
+        5. On adding product display the Added message. Html element is already there.
+            - In css, the element has opacity 0(it's invisible). Add a unique class to identify which product it is for.
+            - On clicking add to cart use DOM to get 'Added' message for product
+            - Add a class to message element using classList.add() and give style opacity 1
+        6. After 2 seconds make the message disappear by removing the class. (use setTimeout)
+            - if we click 'Add to cart', wait 1 to 1.5 seconds, and click again, the message disappears quickly (as the previous setTimeout is still running) 
+              Modify the code so when we click 'Add to Cart' it refreshes the 2 second wait time. HINT : cancel previous setTimeout using clearTimeout()
     </body>
 </html>

@@ -651,5 +651,54 @@ const products = [
             "apparel",
             "men's"
         ]
+    },
+    {   // Ans 3
+        id : "id_01",
+        img : 'img/products/backpack.jpg',
+        name : 'Durable Travel Backpack - Black',
+        rating : {
+            stars : 4,
+            count : 210
+        },
+        priceCents : 2000,
+        keywords : [
+            "backpack",
+            "bag",
+            "travel",
+            "luggage",
+            "carrier"
+        ]
+    },
+    {
+        id : "id_02",
+        img : 'img/products/umbrella.jpg',
+        name : 'Wide Canopy Umbrella - Green',
+        rating : {
+            stars : 4.5,
+            count : 124
+        },
+        priceCents : 1430,
+        keywords : [
+            'rain',
+            'waterproof',
+            'umbrella'
+        ]
+
+    },
+    {
+        id : 'id_03',
+        img : 'img/products/curtain.jpeg',
+        name : 'Floral Shaded Window Curtains',
+        rating : {
+            stars : 5,
+            count : 120
+        },
+        priceCents : 2199,
+        keywords : [
+            'window',
+            'floral',
+            'cover'
+        ]
+
     }
 ]
