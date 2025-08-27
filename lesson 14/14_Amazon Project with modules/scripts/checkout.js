@@ -2,8 +2,9 @@
    Main idea of JavaScript : 
    1. Save the data 2. Generate the HTML 3. Make it interactive  */
 
-import { cart } from "../data/cart.js";
-import {products} from '../data/product.js'; // data saved earlier imported
+import { cart } from "../data/cart.js"; // data saved earlier imported
+import {products} from '../data/product.js';   // ../ means folder outside current folder (ie scripts). It checks for data folder outside scripts folder
+import { formatCurrency } from "./utils/money.js"; //   ./ means current folder. It checks for util folder inside current folder (ie scripts)
 
 let cartSummaryHTML = ''
 
@@ -19,7 +20,6 @@ cart.forEach((cartItem)=> {
         }
     });
 
-    console.log(matchingProduct);
 
     cartSummaryHTML += `
         <div class= "cart-item-container">
@@ -35,8 +35,8 @@ cart.forEach((cartItem)=> {
                         ${matchingProduct.name}
                     </div>
 
-                    <div class= "product-prize">
-                        ${matchingProduct.priceCents / 100}
+                    <div class= "product-price">
+                        $${formatCurrency(matchingProduct.priceCents)}
                     </div>
 
                     <div class= "product-quantity">
@@ -60,7 +60,7 @@ cart.forEach((cartItem)=> {
                     </div>
 
                     <div class= "delivery-option">
-                        <input type = "radio" class="delivery-option-input" name= "delivery-option-1">
+                        <input type = "radio" class="delivery-option-input" name= "delivery-option-${matchingProduct.id}">
 
                         <div>
                             <div class= "delivery-option-date">
@@ -74,7 +74,7 @@ cart.forEach((cartItem)=> {
                     </div>
 
                     <div class= "delivery-option">
-                        <input type = "radio" class= "delivery-option-input" name="delivery-option-1">
+                        <input type = "radio" class= "delivery-option-input" name="delivery-option-${matchingProduct.id}">
 
                         <div>
                             <div class= "delivery-option-date">
@@ -88,7 +88,7 @@ cart.forEach((cartItem)=> {
                     </div>
 
                     <div class= "delivery-option">
-                        <input type= "radio" class= "delivery-option-input" name= "delivery-option-1">
+                        <input type= "radio" class= "delivery-option-input" name= "delivery-option-${matchingProduct.id}">
                         
                         <div>
                             <div class= "delivery-option-date">
@@ -105,8 +105,12 @@ cart.forEach((cartItem)=> {
         </div>
     `
 
+    /* 2 problems : decimal of price not fixed to 2 (solved by toFixed()) 
+       delivery option cannot be selected for each product (solved by making the name attribute same for each product) 
 
+       radio button selectors with same name come under a group. ie we can't select option separately for each product because 
+       all options were of same name attribute. So we made delivery options of each product has same name attribute separately. 
+       ie radio selectors at top has same name attribute and radio selectors at bottom has another but same name attribute*/
 })
 
 document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML
-console.log(cartSummaryHTML)
