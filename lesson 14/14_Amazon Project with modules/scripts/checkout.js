@@ -22,7 +22,8 @@ cart.forEach((cartItem)=> {
 
 
     cartSummaryHTML += `
-        <div class= "cart-item-container">
+        <div class= "cart-item-container 
+        js-cart-item-container-${matchingProduct.id}">
             <div class= "delivery-date">
 
             </div>
@@ -48,7 +49,8 @@ cart.forEach((cartItem)=> {
                             Update
                         </span>
 
-                        <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
+                        <span class="delete-quantity-link link-primary js-delete-link" 
+                        data-product-id="${matchingProduct.id}">
                             Delete
                         </span>
                     </div>
@@ -111,8 +113,6 @@ cart.forEach((cartItem)=> {
        radio button selectors with same name come under a group. ie we can't select option separately for each product because 
        all options were of same name attribute. So we made delivery options of each product has same name attribute separately. 
        ie radio selectors at top has same name attribute and radio selectors at bottom has another but same name attribute */
-
-
     
 })
 
@@ -120,8 +120,12 @@ document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML
 document.querySelectorAll('.js-delete-link')
         .forEach(link => {
             link.addEventListener('click', ()=> {
-                const productId = link.dataset.productId
+                const productId = link.dataset.productId    // to know which product to be deleted we add the product id to the delete link element using data attribute
                 removeFromCart(productId) // onclicking delete we wanna remove product from cart and also update the html.
-                console.log(cart)
-            }) // to know which product to be deleted we add the product id to the link element using data attribute
+                const container = document.querySelector(   // update the html steps : use the dom to get the element to remove then use remove() method
+                    `.js-cart-item-container-${productId}` // we set productId as matchingProduct.id
+                )
+                container.remove()  // Every element we get from dom has a method called remove()
+            }) 
         })
+
