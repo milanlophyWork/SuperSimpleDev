@@ -2,7 +2,7 @@
    Main idea of JavaScript : 
    1. Save the data 2. Generate the HTML 3. Make it interactive  */
 
-import { cart } from "../data/cart.js"; // data saved earlier imported
+import { cart,removeFromCart } from "../data/cart.js"; // data saved earlier imported
 import {products} from '../data/product.js';   // ../ means folder outside current folder (ie scripts). It checks for data folder outside scripts folder
 import { formatCurrency } from "./utils/money.js"; //   ./ means current folder. It checks for util folder inside current folder (ie scripts)
 
@@ -48,7 +48,7 @@ cart.forEach((cartItem)=> {
                             Update
                         </span>
 
-                        <span class="delete-quantity-link link-primary">
+                        <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                             Delete
                         </span>
                     </div>
@@ -110,7 +110,18 @@ cart.forEach((cartItem)=> {
 
        radio button selectors with same name come under a group. ie we can't select option separately for each product because 
        all options were of same name attribute. So we made delivery options of each product has same name attribute separately. 
-       ie radio selectors at top has same name attribute and radio selectors at bottom has another but same name attribute*/
+       ie radio selectors at top has same name attribute and radio selectors at bottom has another but same name attribute */
+
+
+    
 })
 
 document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML
+document.querySelectorAll('.js-delete-link')
+        .forEach(link => {
+            link.addEventListener('click', ()=> {
+                const productId = link.dataset.productId
+                removeFromCart(productId) // onclicking delete we wanna remove product from cart and also update the html.
+                console.log(cart)
+            }) // to know which product to be deleted we add the product id to the link element using data attribute
+        })

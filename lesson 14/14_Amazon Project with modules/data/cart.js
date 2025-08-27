@@ -1,5 +1,5 @@
 
-export const cart = [{
+export let cart = [{
     productId : "e43638ce-6aa0-4b85-b27f-e1d07eb678c6", // deduplicating the data or normalizing the data : Using id we could access all other properties . So no need to store details again 
     quantity : 2
 },
@@ -28,3 +28,14 @@ export function addToCart(productId){
     }
 }
 
+export function removeFromCart(productId){
+    // steps : create new array, Loop through cart, Add each product to new array except for this productId
+
+    const newCart = []
+    cart.forEach(cartItem => {
+        if(cartItem.productId !== productId){
+            newCart.push(cartItem)
+        }
+    })
+    cart = newCart
+}
