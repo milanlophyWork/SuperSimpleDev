@@ -144,49 +144,46 @@ document.querySelectorAll('.js-update-link') // Accessing all update links
         })
     })
 
-// Ans 9 // Switching between update and save
+  
+function handleUpdate(productId, inputElement){
+    const newQuantity = Number(inputElement.value) // Ans 10 // getting the new quantity value for each input so use product id along with it
+
+    if(newQuantity >= 0 && newQuantity < 1000){ // Ans 13 // Adding validation
+
+        updateQuantity(productId, newQuantity) // Ans 11
+        document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity // Ans 12 // updating the quantity label
+        updateCartQuantity() // Ans 12 // Updating the header
+       
+    }else{
+        alert('Invalid Entry')
+    }
+    inputElement.value = '' // clearing the value entered in input 
+
+    document.querySelector(`.js-cart-item-container-${productId}`)
+        .classList.remove("is-editing-quantity") // Ans 9 // Switching between update and save
+
+
+}
 
 document.querySelectorAll('.js-save-link')
     .forEach((link)=> {
         const productId = link.dataset.productId
+        const inputElement = document.querySelector(`.js-quantity-input-${productId}`)
 
+        // click event
         link.addEventListener('click', ()=> {
-            document.querySelector(`.js-cart-item-container-${productId}`)
-                .classList.remove("is-editing-quantity") // Switching between update and save
 
-
-            const inputElement = document.querySelector(`.js-quantity-input-${productId}`)
-            const newQuantity = Number(inputElement.value)  // Ans 10 // getting the new quantity value for each input so use product id along with it
-
-            if(newQuantity >= 0 && newQuantity< 1000){ // Ans 13 // Adding validation
-
-                updateQuantity(productId, newQuantity) // Ans 11
-                document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity // Ans 12 // updating the quantity label
-                updateCartQuantity() // Ans 12 // updating the header
-                
-            }else{
-                document.querySelector(`.js-quantity-label-${productId}`).innerHTML = 'Invalid Entry'
-            }
-            
+            handleUpdate(productId, inputElement)            
         })
-                const inputElement = document.querySelector(`.js-quantity-input-${productId}`)
-            inputElement.addEventListener('keydown', (event)=> {
 
-                const newQuantity = Number(inputElement.value)  // Ans 10 // getting the new quantity value for each input so use product id along with it
+        // keydown event
 
+        inputElement.addEventListener('keydown', (event)=> {
 
-                if(event.key === 'Enter'){
-                    if(newQuantity >= 0 && newQuantity < 1000){
-                        updateQuantity(productId, newQuantity)
-                        document.querySelector(`.js-quantity-label-${productId}`).innerHTML = newQuantity
-                        updateCartQuantity()
-                        inputElement.value = ''
-                    }else{
-                        alert('Invalid Entry')
-                    }
-                }
-            })
+            if(event.key === 'Enter'){
+                handleUpdate(productId, inputElement)
+            }
+        })
         
     })
-    
-
+  
