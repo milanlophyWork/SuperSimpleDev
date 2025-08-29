@@ -10,7 +10,7 @@ let cartSummaryHTML = ''
 
 cart.forEach((cartItem)=> {
 
-    const productId = cartItem.productId // normalizing // using id, to navigate through all properties we want
+    const productId = cartItem.productId // normalizing // we save products separately and use id, to navigate through all properties. check cart.js
 
     let matchingProduct
 
