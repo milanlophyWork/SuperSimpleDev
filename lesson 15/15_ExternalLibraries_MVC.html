@@ -30,7 +30,113 @@
 
         External libraries usually have a documentation page that shows us how to use the library. We can find the documentation page by searching on Google the 'library_name documentation' (ie dayjs documentation)
 
+        <p>DayJS external library creates a function called dayjs() that gives us an object that represents the current date and time. It also provides a method called add() to perform calculations.</p>
+        <p>add() returns a cloned Day.js object with a specified amount of time added. It takes two parameters : number of time we wanted to add and length of time we want to add.</p>
+        <p>It also has another method called format() which will display the date in an easy-to-read format. It takes a string that specifies the format we wanted to display the date.</p>
+
+        <h5>List of available format</h5>
+
+
         <script src="https://unpkg.com/supersimpledev@1.0.1/hello.js"></script>   <!-- External Linrary : Code outside our project -->
         <script src="./15_ExternalLibrary.js"></script>
+        <script>
+
+            // Creating table header
+
+            const table = document.createElement('table')
+            table.border = '1'
+            table.style.borderCollapse = "collapse" // remove double borders
+            table.style.width = "100%" // set full width
+
+            const headerRow = document.createElement('tr')
+            const headings = ['Format', 'Description', 'Output']
+
+            headings.forEach((text)=> {
+                const th = document.createElement('th')
+                th.textContent = text
+                headerRow.appendChild(th)
+            })
+            table.appendChild(headerRow)
+
+            // Create table body
+
+            const datas = [
+                {
+                    format : 'YY',
+                    description : '2-digit-year',
+                    output : 25
+                },
+                {
+                    format : 'YYYY',
+                    description : '4-digit-year',
+                    output : 2025
+                },
+                {
+                    format : 'M',
+                    description : 'The month, beginning at 1',
+                    output : '1-12' 
+                },
+                {
+                    format : 'MM',
+                    description : 'The month, 2-digits',
+                    output : '01-12'
+                },
+                {
+                    format : 'dd',
+                    description : 'The min name of the week',
+                    output : 'Su-Sa'
+                },
+                {
+                    format : 'ddd',
+                    description : 'The short name of the day of the week',
+                    output : 'Sun-Sat'
+                },
+                {
+                    format : 'dddd',
+                    description : 'The name of the day of the week',
+                    output : 'Sunday-Saturday'
+                },
+                {
+                    format : 'H',
+                    description : 'The hour',
+                    output : '0-23'
+                }
+            ]
+
+            datas.forEach(data => {
+                const row = document.createElement('tr')
+                
+                const tdFormat = document.createElement('td')
+                tdFormat.textContent = data.format
+                row.appendChild(tdFormat)
+
+                const tdDesc = document.createElement('td')
+                tdDesc.textContent = data.description
+                row.appendChild(tdDesc)
+
+                const tdOutput =document.createElement('td')
+                tdOutput.textContent = data.output
+                row.appendChild(tdOutput)
+
+                table.appendChild(row)
+            })
+            
+            document.body.appendChild(table)
+
+        </script>
+        
     </body>
 </html>
+
+<!--
+
+    We need to do three things to calculate delivery date
+
+    1. Get today's date
+    2. Do calculations (Add 7 days, 3 days, 1 day )
+    3. Display the date in easy-to-read format
+
+    DayJS helps us to do all these things.
+
+    It saves us a lot of work and time. So best practise is to search for external libraries when we need to do something complicated. 
+-->

@@ -4,7 +4,9 @@ import { cart,removeFromCart } from "../data/cart.js";
 import {products} from '../data/product.js';  
 import { formatCurrency } from "./utils/money.js"; 
 
-console.log(dayjs()) // Day JS external library creates a function called dayjs() that gives us an object that represents the current date and time.
+const today = dayjs() // step 1 : get today's date// dayjs() represents the current date and time.
+const deliveryDate  = today.add(7, 'days') // step 2 : To perform calculations : add 7 days to current date
+console.log(deliveryDate.format('dddd, DD MMM YYYY')) // step 3 : display in easy-to-read format. // 'dddd' display day of the week, 'DD' display date, 'MMM' display month, 'YYYY' display year.
 
 let cartSummaryHTML = ''
 
@@ -121,4 +123,3 @@ document.querySelectorAll('.js-delete-link')
                 container.remove() 
             }) 
         })
-
