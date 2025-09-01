@@ -1,6 +1,6 @@
 
 
-import { cart,removeFromCart } from "../data/cart.js"; 
+import { cart,removeFromCart, updateDeliveryOption } from "../data/cart.js"; 
 import { products } from '../data/product.js';  
 import { formatCurrency } from "./utils/money.js"; 
 import { deliveryOptions } from "../data/deliveryOptions.js";
@@ -35,7 +35,7 @@ cart.forEach((cartItem)=> {
     })
 
     const today = dayjs()
-    const deliveryDate = today.add(
+    const deliveryDate = today.add( 
         deliveryOption.deliveryDays,
         'days'
     )
@@ -111,10 +111,13 @@ function deliveryOptionsHTML(matchingProduct, cartItem){ // step 2 generating th
 
         const isChecked = deliveryOption.id === cartItem.deliveryOptionId // Automating checking of option
         
-
+    // Step 2 : generate the html
         html += `
 
-            <div class= "delivery-option">
+            <div class= "delivery-option js-delivery-option"
+              data-product-id ="${matchingProduct.id}"
+              data-delivery-option-id= "${deliveryOption.id}">
+
                 <input type = "radio" 
                 ${isChecked ? 'checked' : ''}
                 class= "delivery-option-input" 
@@ -139,13 +142,28 @@ function deliveryOptionsHTML(matchingProduct, cartItem){ // step 2 generating th
 
 document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML
 document.querySelectorAll('.js-delete-link')
-        .forEach(link => {
-            link.addEventListener('click', ()=> {
-                const productId = link.dataset.productId   
-                removeFromCart(productId) 
-                const container = document.querySelector(   
-                    `.js-cart-item-container-${productId}` 
-                )
-                container.remove() 
-            }) 
-        })
+    .forEach(link => {
+        link.addEventListener('click', ()=> {
+            const productId = link.dataset.productId   
+            removeFromCart(productId) 
+            const container = document.querySelector(   
+                `.js-cart-item-container-${productId}` 
+            )
+            container.remove() 
+        }) 
+    })
+    
+// Step 3 : Make interactive 
+
+//  first Update deliveryOptionId in cart Then update the page
+
+document.querySelectorAll('.js-delivery-option')
+
+    .forEach((element)=> {
+        const {productId, deliveryOptionId} = element.dataset // short hand property
+
+        element.addEventListener('click', ()=> 
+            updateDeliveryOption(productId, deliveryOptionId))
+    })
+
+
