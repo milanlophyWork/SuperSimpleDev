@@ -1,8 +1,9 @@
 import { cart, removeFromCart, updateDeliveryOption } from "../../data/cart.js";
-import { products, getProduct } from "../../data/product.js";
+import { getProduct } from "../../data/product.js";
 import { formatCurrency } from "../utils/money.js";
 import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js'
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 /* 
     const today = dayjs() // step 1 : get today's date // dayjs() represents the current date and time.
@@ -136,14 +137,15 @@ export function renderOrderSummary(){
         .forEach(link => {
             link.addEventListener('click', ()=> {
                 const productId = link.dataset.productId
-                removeFromCart(productId)
+                removeFromCart(productId) // In mvc technique, on deleting we update data (remove from cart fn) and then regenrate html (renderpaymentsummary fn)
                 const container = document.querySelector(
                     `.js-cart-item-container-${productId}`
                 )
                 container.remove()
+                renderPaymentSummary()
             })
         })
-    // Step 3 : Make interactive
+    // Step 3 : Make interactive [Controller]
     
     // first Update deliveryOptionId in cart Then update the page
 
@@ -151,8 +153,9 @@ export function renderOrderSummary(){
         .forEach((element)=> {
             element.addEventListener('click', ()=> {
                 const {productId, deliveryOptionId} = element.dataset // short hand property
-                updateDeliveryOption(productId, deliveryOptionId) // ***After updating delivery option , re-run the whole code for updating the page
+                updateDeliveryOption(productId, deliveryOptionId) // ***After updating delivery option , re-run the whole code for updating the page [mvc technique]
                 renderOrderSummary() // So no need to refresh for getting updated data. Better way than using DOM
+                renderPaymentSummary() // regenerate html (renderOrderSummary fn and renderPaymentSummmary fn)
             })
         })
 }
