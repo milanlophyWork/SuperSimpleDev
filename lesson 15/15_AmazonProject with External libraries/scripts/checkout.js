@@ -1,4 +1,5 @@
 import { renderOrderSummary } from "./checkout/orderSummary.js"
+import { renderPaymentSummary } from "./checkout/paymentSummary.js"
 
 renderOrderSummary() // Run the fn as we want to run this at start of the page.
 
@@ -24,3 +25,4 @@ renderOrderSummary() // Run the fn as we want to run this at start of the page.
 */
 
 
+renderPaymentSummary()

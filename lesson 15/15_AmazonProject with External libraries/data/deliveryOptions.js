@@ -1,3 +1,4 @@
+
 export const deliveryOptions = [ // step 1 : save the data
     {
         id: '1', // normalizing the data // the given id is passed to cart to get these properties 
@@ -15,3 +16,14 @@ export const deliveryOptions = [ // step 1 : save the data
         priceCents : 999
     }
 ]
+
+export function getDeliveryOption(deliveryOptionId){
+    let deliveryOption
+
+    deliveryOptions.forEach((option)=> {
+        if(option.id === deliveryOptionId){
+            deliveryOption = option
+        }
+    })
+    return deliveryOption || deliveryOptions[0]
+}
